@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html<?php echo $direction ?>>
+<head>
+    <?php echo $meta ?>
+    <meta name="keywords" content="moodle, <?php echo $title ?> " />
+    <title><?php echo $title ?></title>
+    <link rel="shortcut icon" href="<?php echo $CFG->themewww .'/'. current_theme() ?>/favicon.ico" />
+	<link rel="stylesheet" href="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/euni_print.css" type="text/css" media="print" />
+
+
+
+
+<!--[if lt IE 7]>
+<script type="text/javascript" src="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/js/ie6png.js"></script>
+<![endif]-->
+
+    <?php include("$CFG->javascript"); ?>
+    <!--<?php include("$THEME->javascript"); ?>	  <- não esquecer desse lixo ai-->  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /></head>
+
+<body<?php
+    echo " $bodytags";
+    if ($focus) {
+        echo " onload=\"setfocus()\"";
+    }
+    ?>>
+<div id="surround">
+<div id="page">
+
+<?php //Accessibility: warning: ALT text will need editing if logo changes. 'headermain' is now H1, see theme/standard/styles_layout.css: .headermain
+if ($heading) {  // This is what gets printed on any page with a heading
+?>
+                      
+	
+
+<!-- Início da barra do governo-->
+
+<div id="mec">
+	<div id="mecConteudo">
+	<a href="http://www.mec.gov.br" title="Ministério da Educação">Ministério da Educação</a>
+	<a href="http://www.brasil.gov.br/" tabindex="1" style="background:none;float:right;padding:0;margin-left:30px" title="Portal do Governo Federal"><img src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barragov/gov.gif" alt="Brasil, um país de todos" /></a>
+		
+				
+		<form action="javascript:;">
+			<select onchange="if( options[selectedIndex].value ) { window.location.href= (options[selectedIndex].value); }">
+
+				<option value="0">Destaques do Governo</option>
+				<option value="http://www.brasil.gov.br">Portal do Governo Federal</option>
+				<option value="http://www.e.gov.br">Portal de Servi&ccedil;os do Governo</option>
+				<option value="http://www.radiobras.gov.br">Portal da Ag&ecirc;ncia de Not&iacute;cias</option>
+
+				<option value="http://www.previdenciasocial.gov.br/reforma">Reforma da Previd&ecirc;ncia</option>
+
+				<option value="http://www.fomezero.gov.br">Programa Fome Zero</option>
+			</select>
+		</form>
+		</div>
+</div>
+
+<!-- barra de acessibilidade -->
+
+<div id="acessibilidade">
+	<div id="ace_conteudo">
+		<div class="direita">
+			
+			<p><span class="pular">Pular para:</span>
+			|<a href="#left-column" accesskey="m" class="atalho" title="Pular para o menu" > Menu (alt+M)</a> |
+			<a href="#middle-column" accesskey="c" class="atalho" title="Pular para o conteúdo">Conteúdo (alt+C)</a> |
+		
+			<script type="text/javascript" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/js/barraac/md_stylechanger.js"></script>
+
+	Tamanho da letra: <a href="javascript:changeFontSize(1)" title="Aumenta texto">
+			<img src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barraac/btn-tamanho-mais.png" alt="botão +" border="0" style="margin-right:5px;" /></a>
+		
+			<a href="javascript:revertStyles()" title="Texto normal"><img id="btn-tamanho-menos" alt="botão -" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barraac/btn-tamanho-menos.png" /></a>
+			</p>
+		</div>		
+
+	</div>
+</div>
+
+ <?php print_container_start(true, '', 'header');
+    	
+	
+    echo '<div id="logo">';
+    echo '<a href="'.$CFG->wwwroot.'" style="display: block; width: 247px; height: 96px;"> </a>';
+    echo '</div>';
+    echo '<div id="header-profileblock">';
+    include('profileblock.php');
+    echo '</div>';
+     ?>
+        
+	
+
+       
+    <?php print_container_end(); ?>
+     <div id="top_menu_bkg">
+     <div id="top_menu">
+     <?php
+        {
+        include('topmenu.php'); 
+        }   
+?>					
+			</div></div>
+<?php } ?>
+<?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
+      if ($navigation) { // This is the navigation bar with breadcrumbs  ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="navbutton"><?php echo $button; ?></div>
+    </div>
+
+<?php } ?><!-- END OF HEADER --><?php print_container_start(false, '', 'content'); ?>

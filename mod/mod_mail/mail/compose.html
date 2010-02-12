@@ -1,0 +1,242 @@
+
+<?php 
+
+if (!isset($form->subject)) {
+   $form->subject = $SESSION->subject;
+}
+
+if (!isset($form->message)) {
+   $form->message = $SESSION->message;
+}
+
+if ($reply) {
+	$textourl = "compose.php?reply=$message->id";
+} else if ($forward) {
+	$textourl = "compose.php?forward=$message->id";
+} else {
+	$textourl = "compose.php?id=$cm->id";
+}
+
+?>
+
+<form name="composeform" method="post" action="<?php echo $textourl; ?>" enctype="multipart/form-data">
+<table align="center" border="0" cellpadding="5" cellspacing="0">
+   
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('struserscourse', 'mail').": ".$numusers;
+          ?>
+      </td>
+      <td></td>
+      <td valign="top">
+          <?php
+              echo get_string('strselectedusers', 'mail').": ".count($SESSION->selectedto);
+          ?>
+      </td>
+	<?php if (isteacher($cm->course) or isadmin()) { ?>
+	  <td></td>
+      <td valign="top">
+          <?php
+              echo get_string('strgroupscourse', 'mail').": ".count($groups);
+          ?>
+      </td>
+	<?php } ?>
+    </tr>
+    <tr>
+      <td valign="top">
+          <select name="selectusers[]" size="10" id="selectusers" multiple
+                  onFocus="document.composeform.adduser.disabled=false;
+                           document.composeform.removeuser.disabled=true;
+						   document.composeform.addgroup.disabled=true;
+                           document.composeform.selectedto.selectedIndex=-1;
+						   document.composeform.selectgroups.selectedIndex=-1;" />
+			
+          <?php
+		  	if (count($teachers) > 0) {
+		  		echo "<OPTGROUP label='".get_string('teachers')."'>"; 
+			}
+            
+			foreach ($teachers as $teacher) {
+                $fullname = $teacher->firstname." ".$teacher->lastname." (".$teacher->username.")";
+                echo "<option value=\"$teacher->id\">".$fullname."</option>\n";
+            }
+			
+			if (count($teachers) > 0) {
+			  	echo "</OPTGROUP>";
+			}
+          ?>
+		    
+			
+          <?php 
+		  	if (count($students) > 0) {
+		  		echo "<OPTGROUP label='".get_string('students')."'>";
+            }
+			
+			foreach ($students as $student) {
+                $fullname = $student->firstname." ".$student->lastname." (".$student->username.")";
+                echo "<option value=\"$student->id\">".$fullname."</option>\n";
+            }
+			
+			if (count($students) > 0) {
+				echo "</OPTGROUP>";
+			}
+          ?>
+		    
+          
+          </select></td>
+      <td valign="top">
+        <br />
+        <input name="adduser" type="submit" id="adduser" value="&rarr;" />
+        <br />
+        <input name="removeuser" type="submit" id="removeuser" value="&larr;" />
+        <br />
+      </td>
+      <td valign="top">
+          <select name="selectedto[]" size="10" id="selectedto" multiple
+                  onFocus="document.composeform.adduser.disabled=true;
+                           document.composeform.removeuser.disabled=false;
+						   document.composeform.addgroup.disabled=true;
+                           document.composeform.selectusers.selectedIndex=-1;
+						   document.composeform.selectgroups.selectedIndex=-1;">
+          <?php
+				
+				$listauserselected = implode(',', $SESSION->selectedto);
+				
+				$selected = get_records_sql("SELECT id, firstname, lastname, username FROM {$CFG->prefix}user WHERE id in ($listauserselected) ORDER BY firstname ASC, lastname ASC, username ASC");
+				
+				$first = true;
+				
+				foreach ($selected as $sel) {
+					if (isteacher($course->id, $sel->id)) {
+						if ($first) {
+							echo "<OPTGROUP label='".get_string('teachers')."'>"; 
+							$first = false;
+						}
+				 		$fullname = $sel->firstname." ".$sel->lastname." (".$sel->username.")";
+                   		echo "<option value=\"$sel->id\">".$fullname."</option>\n";
+					}
+               	}
+				
+				if ($first = false) {
+					echo "</OPTGROUP>";
+				}
+				
+				$first = true;
+				
+				foreach ($selected as $sel) {
+					if (!isteacher($course->id, $sel->id)) {
+						if ($first) {
+							echo "<OPTGROUP label='".get_string('students')."'>"; 
+							$first = false;
+						}
+				 		$fullname = $sel->firstname." ".$sel->lastname." (".$sel->username.")";
+                   		echo "<option value=\"$sel->id\">".$fullname."</option>\n";
+					}
+               	}
+				
+				if ($first = false) {
+					echo "</OPTGROUP>";
+				}
+				
+          ?>
+         </select>
+         <br />
+         
+       </td>
+	 <?php if (isteacher($cm->course) or isadmin()) { ?>
+	   <td valign="top">
+        <br />
+        <input name="addgroup" type="submit" id="addgroup" value="&larr;" />
+        <br />
+      </td>
+      <td valign="top">
+          <select name="selectgroups[]" size="10" id="selectgroups" multiple
+                  onFocus="document.composeform.adduser.disabled=true;
+                           document.composeform.removeuser.disabled=true;
+						   document.composeform.addgroup.disabled=false;
+                           document.composeform.selectusers.selectedIndex=-1;
+						   document.composeform.selectedto.selectedIndex=-1;">
+          <?php
+                 foreach ($groups as $group) {
+                   	$fullname = $group->name;
+                   	echo "<option value=\"$group->id\">".$fullname."</option>\n";
+                 }
+
+          ?>
+         </select>
+         <br />
+         
+       </td>
+	 <?php } ?>
+    </tr>
+
+</table>
+
+<br />
+
+<table align="center" border="0" cellpadding="5" cellspacing="0">
+
+<tr valign="top">
+    <td align="right"><b><?php  print_string("subject", "mail") ?>:</b></td>
+    <td align="left">
+        <input type="text" id="subject" name="subject" size="40" value="<?php  p($form->subject) ?>" />
+    </td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><b><?php print_string("message", "mail"); ?>:</b><br />
+    <?php
+		helpbutton("writing", get_string("helpwriting"), "moodle", true, true);
+		echo "<br />";
+		helpbutton("text", get_string("helptext"), "moodle", true, true);
+    ?>
+	</td>
+	<td align="left" colspan="2">
+		<?php print_textarea($usehtmleditor, 20, 50, 680, 400, "message", $form->message); ?>
+    </td>
+</tr>
+
+<?php 
+	$upload_max_filesize = get_max_upload_file_size($CFG->mail_maxbytes, $course->maxbytes, $mail->maxbytes);
+	$strmaxsize = display_size($upload_max_filesize);
+
+if ($forward) { ?>
+
+<tr valign="top">
+	<td align="right"><b><?php print_string("file", "mail"); ?> (<?php echo $strmaxsize; ?>):</b></td>
+	<td align="left">
+		<?php 
+		if (!empty($message->archivo)) {
+			echo mail_get_imgfile($course->id, $mail->id, $message->id, $message->archivo);
+		} else {
+			echo get_string("none");
+		} ?>
+    </td>
+</tr>
+
+<?php 
+} else {
+?>
+
+<tr valign="top">
+	<td align="right"><b><?php print_string("file", "mail"); ?> (<?php echo $strmaxsize; ?>):</b></td>
+	<td align="left">
+		<?php echo upload_print_form_fragment(1,array('newfile'),false,null, $course->maxbytes, $upload_max_filesize,false); ?>
+    </td>
+</tr>
+
+<?php
+} 
+?>
+
+<tr>
+    <td align="center" colspan="2">
+	<input type="hidden" name="sesskey" value="<?php echo sesskey(); ?>" />
+    <input type="submit" name="send" id="send" value="<?php  print_string("send", "mail") ?>" />
+    </td>
+</tr>
+
+</table>
+</form>
+

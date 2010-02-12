@@ -1,0 +1,14 @@
+
+/* Barra de Acessibilidade */
+
+#acessibilidade {color:#8b5d0d;}
+#acessibilidade strong {color:#4f3422;}
+#acessibilidade p {text-align:left;margin-top:7px;margin-left:10px;}
+
+#acessibilidade .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}
+#acessibilidade .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}
+#acessibilidade .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}
+#acessibilidade .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}
+
+
+/*              Fim da barra de acessibilidade                */

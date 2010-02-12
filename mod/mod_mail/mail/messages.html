@@ -1,0 +1,218 @@
+
+<?php 
+
+
+if ($message) {
+	$textourl = "messages.php?id=$message->id";
+} else if ($folder) {
+	$textourl = "messages.php?f=$folder->id";
+} 
+
+?>
+
+<script language="JavaScript" type="text/javascript">
+    
+    function SeleccionCorreo()
+    {
+        ch2 = document.formmessages.elements;
+
+        for(i = 0; i < ch2.length; i++)
+        {
+            if (ch2[i].type == 'checkbox')
+            {
+                ch2[i].checked = document.formmessages.checkall.checked;
+            }
+        }
+    }
+	
+</script>
+
+<form name="formmessages" method="post" action="<?php echo $textourl; ?>">
+
+<?php if ($message) { ?>
+<table align="center" width="100%" border="0" cellpadding="5" cellspacing="0">
+ 
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('from', 'mail').": ";
+          ?>
+      </td>
+      <td valign="top">
+          <?php
+              echo mail_print_name_user_message($message->fromid, $course->id);
+          ?>
+      </td>
+ </tr>
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('date').": ";
+          ?>
+      </td>
+      <td valign="top">
+          <?php
+              echo userdate($message->timemodified);
+          ?>
+      </td>
+ </tr>
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('to', 'mail').": ";
+          ?>
+      </td>
+      <td valign="top">
+          <?php
+              echo $listtousers;
+          ?>
+      </td>
+ </tr>
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('subject', 'mail').": ";
+          ?>
+      </td>
+      <td valign="top">
+          <?php
+              echo format_string($message->subject);
+          ?>
+      </td>
+ </tr>
+ <tr>
+      <td valign="top">
+          <?php
+              echo get_string('file', 'mail').": ";
+          ?>
+      </td>
+      <td valign="top">
+          <?php
+          	if (!empty($message->archivo)) {
+				echo mail_get_imgfile($course->id, $mail->id, $message->id, $message->archivo);
+			} else {
+				echo get_string("none");
+			}	 
+          ?>
+      </td>
+ </tr>
+ <tr>
+      <td colspan="2" valign="top" class="cell">
+		  <br />
+		  <?php
+              echo format_text($message->message);
+          ?>
+		  <br />
+      </td>
+ </tr>
+
+<tr>
+    <td align="right" colspan="2">
+    <?php 
+	echo "<a href='".$CFG->wwwroot."/mod/mail/compose.php?reply=".$message->id."&amp;clean=1'>".get_string("reply","mail")."</a> | "; 
+	echo "<a href='".$CFG->wwwroot."/mod/mail/compose.php?forward=".$message->id."&amp;clean=1'>".get_string("forward","mail")."</a> | "; 
+	echo "<a href='".$CFG->wwwroot."/mod/mail/messages.php?delete=".$message->id."'>".get_string("delete","mail")."</a>"; 
+	?>
+    </td>
+</tr>
+
+</table>
+
+<?php 
+}
+
+if ($folder or $id) { 
+	if ($folder) {
+		print_paging_bar($numtotalmessages, $page, $perpage,
+                "messages.php?f=$folder->id&amp;sort=$sort&amp;dir=$dir&amp;");
+	} 
+	
+	if ($id) {
+		print_paging_bar($numtotalmessages, $page, $perpage,
+                "messages.php?id=$id&amp;sort=$sort&amp;dir=$dir&amp;");
+	}
+	
+	$table1 = new stdClass;
+
+	$strcheckall = "<INPUT TYPE='checkbox' NAME='checkall' onClick='SeleccionCorreo()'>";
+	
+	$strmark = mail_print_enlace_head_sort($folder->id, $id, get_string("mark", "mail"), "mark", $sort, $dir, $page);
+	$strfrom = mail_print_enlace_head_sort($folder->id, $id, get_string("from", "mail"), "from", $sort, $dir, $page);
+	$strto = mail_print_enlace_head_sort($folder->id, $id, get_string("to", "mail"), "to", $sort, $dir, $page);
+	$strsubject = mail_print_enlace_head_sort($folder->id, $id, get_string("subject", "mail"), "subject", $sort, $dir, $page);
+	$strdate = mail_print_enlace_head_sort($folder->id, $id, get_string("date"), "date", $sort, $dir, $page);
+
+	if ($folder->type == "E") {
+    	$table1->head  = array ($strcheckall, $strmark, $strfrom, $strsubject, $strdate);
+	} else if ($folder->type == "S") {
+    	$table1->head  = array ($strcheckall, $strmark, $strto, $strsubject, $strdate);
+	} else {
+		$table1->head  = array ($strcheckall, $strmark, $strfrom, $strto, $strsubject, $strdate);
+	}
+	
+    $table1->align = array ("center");
+	$table1->width = "100%";
+	
+	foreach ($messages as $message) {
+	
+		$strcheck = "<INPUT TYPE='checkbox' NAME='ch[]' value='".$message->id."' />";
+		$strmarkmessage = mail_get_img_message($message);
+		
+		if ($message->leido) {
+			$strfrommessage = mail_print_name_user_message($message->fromid, $course->id);
+			$strtomessage = mail_get_list_to_users($course->id, $message->id);
+			$strsubjectmessage = "<a href='".$CFG->wwwroot."/mod/mail/messages.php?m=".$message->id."'>".format_string($message->subject)."</a>";
+			$strdatemessage = userdate($message->timemodified);
+		} else {
+			$strfrommessage = "<b>".mail_print_name_user_message($message->fromid, $course->id)."</b>";
+			$strtomessage = "<b>".mail_get_list_to_users($course->id, $message->id)."</b>";
+			$strsubjectmessage = "<b><a href='".$CFG->wwwroot."/mod/mail/messages.php?m=".$message->id."'>".format_string($message->subject)."</a></b>";
+			$strdatemessage = "<b>".userdate($message->timemodified)."</b>";
+		}
+		
+		if ($folder->type == "E") {
+			$table1->data[] = array ($strcheck, $strmarkmessage, $strfrommessage, $strsubjectmessage, $strdatemessage);
+		}else if ($folder->type == "S") {
+			$table1->data[] = array ($strcheck, $strmarkmessage, $strtomessage, $strsubjectmessage, $strdatemessage);
+		} else {
+			$table1->data[] = array ($strcheck, $strmarkmessage, $strfrommessage, $strtomessage, $strsubjectmessage, $strdatemessage);
+		}
+	}
+	
+	print_table($table1);
+
+	if ($folder) {
+		print_paging_bar($numtotalmessages, $page, $perpage,
+                "messages.php?f=$folder->id&amp;sort=$sort&amp;dir=$dir&amp;");
+	} 
+	
+	if ($id) {
+		print_paging_bar($numtotalmessages, $page, $perpage,
+                "messages.php?id=$id&amp;sort=$sort&amp;dir=$dir&amp;");
+	}
+
+?>
+<br />
+<table align="center" width="100%" border="0" cellpadding="5" cellspacing="0">
+ <tr>
+  	<td valign="top"><?php echo get_string("withmessageselected","mail").": "; ?>
+	<select id="menumove" name="move" onchange="javascript:document.formmessages.submit()">
+   	<option value="-1"><?php echo get_string("movefolder","mail"); ?></option>
+ 
+	<?php mail_print_options_folder($mail, $USER->id, $folder, $id); ?>
+   	
+	</select>
+	<select id="menuread" name="markread" onchange="javascript:document.formmessages.submit()">
+   	<option value="nothing"><?php echo get_string("markas","mail"); ?></option>
+   	<option value="read"><?php echo get_string("messageread","mail"); ?></option>
+	<option value="noread"><?php echo get_string("messagenoread","mail"); ?></option>
+	</select>
+	<input type="submit" name="delete" value="<?php echo get_string("delete","mail"); ?>" />
+	</td>
+ </tr>
+</table>
+
+<?php } ?>
+
+</form>
+

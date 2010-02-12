@@ -1,0 +1,150 @@
+<?php
+		if ( $CFG->email_enable_ssl ) {
+			$wwwroot = str_replace('http:','https:',$CFG->wwwroot);
+	    } else {
+	        $wwwroot = $CFG->wwwroot;
+	    }
+?>
+
+<!--CSS file (default YUI Sam Skin) -->
+<link type="text/css" rel="stylesheet" href="<?php echo $wwwroot.'/blocks/email_list/email/participants/autocomplete-skin.css';?>">
+
+<!-- Dependencies -->
+<script type="text/javascript" src="<?php echo $wwwroot.'/lib/yui/yahoo-dom-event/yahoo-dom-event.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo $wwwroot.'/lib/yui/datasource/datasource-min.js'; ?>"></script>
+
+<!-- OPTIONAL: Connection (required only if using XHR DataSource) -->
+<script type="text/javascript" src="<?php echo $wwwroot.'/lib/yui/connection/connection-min.js'; ?>"></script>
+
+<!-- OPTIONAL: JSON (enables JSON validation) -->
+<script type="text/javascript" src="<?php echo $wwwroot.'/lib/yui/json/json-min.js'; ?>"></script>
+
+<!-- Source file -->
+<script type="text/javascript" src="<?php echo $wwwroot.'/lib/yui/autocomplete/autocomplete-min.js'; ?>"></script>
+
+<script type="text/javascript">
+
+// An XHR DataSource
+var myServer = "<?php echo $wwwroot.'/blocks/email_list/email/participants/search_users.php';?>";
+var mySchema = ["ResultSet.Result", "Username", "Userid"];
+var myDataSource = new YAHOO.widget.DS_XHR(myServer, mySchema);
+myDataSource.responseType = YAHOO.widget.DS_XHR.TYPE_JSON;
+
+myDataSource.scriptQueryAppend = "course=<?php echo $course->id; ?>";
+
+// Define the dropdown lists and data sources
+var myAutoCompTo = new YAHOO.widget.AutoComplete("id_nameto","qResultsTo", myDataSource);
+var myAutoCompCC = new YAHOO.widget.AutoComplete("id_namecc","qResultsCC", myDataSource);
+var myAutoCompBCC = new YAHOO.widget.AutoComplete("id_namebcc","qResultsBCC", myDataSource);
+
+//define your itemSelect handler function:
+var itemSelectHandler = function(sType, aArgs) {
+    YAHOO.log(sType); //this is a string representing the event;
+				      //e.g., "itemSelectEvent"
+	var oMyAcInstance = aArgs[0]; // your AutoComplete instance
+	
+    var name = oMyAcInstance["_sName"];
+    field = name.split(" ");
+
+	var elListItem = aArgs[1]; //the <li> element selected in the suggestion
+        				       //container
+	var aData = aArgs[2]; //array of the data for the item as returned by the DataSource
+
+    // To determine which of the three fields data is from
+    var fieldid = field[1];
+    var fieldtype = fieldid.substr(7,fieldid.length);
+    
+    // Checks if selected user was added already
+    if (alreadySending("to", aData[1])) {
+        return false;
+    }
+    if (alreadySending("cc", aData[1])) {
+        return false;
+    }
+    if (alreadySending("bcc", aData[1])) {
+        return false;
+    }
+
+    /*for (myKey in elListItem){
+    	alert ("elListItem["+myKey +"] = "+elListItem[myKey]);
+    }*/
+    	    
+    
+    // On selection of name, this fills out the hidden elements required to send
+    // to selected user
+    // I Very Hate IE...had to do this ugly hack to get this to work for IE 6+ :(
+    var contacts = window.document.createElement("span");
+
+	window.document.getElementById(fieldid).parentNode.appendChild(contacts);
+	contacts.innerHTML = '<input type="hidden" value="'+aData[1]+'" name="'+fieldtype+'[]">';
+};
+
+//subscribe your handler to the event for to field
+myAutoCompTo.itemSelectEvent.subscribe(itemSelectHandler);
+
+//subscribe your handler to the event for to field
+myAutoCompCC.itemSelectEvent.subscribe(itemSelectHandler);
+
+//subscribe your handler to the event for to field
+myAutoCompBCC.itemSelectEvent.subscribe(itemSelectHandler);
+
+// Some settings (to field)
+myAutoCompTo.delimChar = ",";
+myAutoCompTo.maxResultsDisplayed = 5;
+myAutoCompTo.minQueryLength = 1;
+myAutoCompTo.queryDelay = 0;
+// Was causing problems with interaction between YUI autocomplete and contacts list popup, so its disabled
+myAutoCompTo.forceSelection = false;
+// Was causing some user interaction issues, so its disabled
+myAutoCompTo.typeAhead = false;
+myAutoCompTo.maxCacheEntries = 20;
+myAutoCompTo.queryMatchSubset = true;
+//Do not automatically highlight the first result item in the container 
+myAutoCompTo.autoHighlight = true;
+
+
+// Some settings (cc field)
+myAutoCompCC.delimChar = ",";
+myAutoCompCC.maxResultsDisplayed = 5;
+myAutoCompCC.minQueryLength = 1;
+myAutoCompCC.queryDelay = 0;
+// Was causing problems with interaction between YUI autocomplete and contacts list popup, so its disabled
+myAutoCompTo.forceSelection = false;
+// Was causing some user interaction issues, so its disabled
+myAutoCompCC.typeAhead = false;
+myAutoCompTo.maxCacheEntries = 20;
+myAutoCompTo.queryMatchSubset = true;
+
+// Some settings (bcc field)
+myAutoCompBCC.delimChar = ",";
+myAutoCompBCC.maxResultsDisplayed = 5;
+myAutoCompBCC.minQueryLength = 1;
+myAutoCompBCC.queryDelay = 0;
+// Was causing problems with interaction between YUI autocomplete and contacts list popup, so its disabled
+myAutoCompTo.forceSelection = false;
+// Was causing some user interaction issues, so its disabled
+myAutoCompBCC.typeAhead = false;
+myAutoCompTo.maxCacheEntries = 20;
+myAutoCompTo.queryMatchSubset = true;
+
+/**
+ * This function checks if user is added already
+ *
+ * @param string sentype 'to', 'cc', 'bcc'
+ * @param string userid
+ * @return boolean true if already sending, false if new participant
+ */
+function alreadySending(sendtype, userid) {
+    var old = null;
+    
+    if (old = document.getElementsByName(sendtype+'[]')) {
+        for (var i=0; i < old.length; i++) {
+            if ( userid == old[i].value ) {
+                return true;
+            }
+        }
+    } else {
+        return false;
+    }
+}
+</script>

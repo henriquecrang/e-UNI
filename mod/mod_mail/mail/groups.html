@@ -1,0 +1,202 @@
+
+<?php 
+
+if ($addnew) {
+	if (!isset($form->name)) {
+   		$form->name = $SESSION->groupname;
+	}
+}
+
+if ($edit) {
+	$form->name = $groupedit->name;
+}
+
+if ($addnew) {
+	$textourl = "groups.php?id=$id&amp;addnew=true";
+} else if ($edit) {
+	$textourl = "groups.php?id=$id&amp;edit=$groupedit->id";
+} else {
+	$textourl = "groups.php?id=$id";
+}
+
+?>
+
+<form name="formgroups" method="post" action="<?php echo $textourl; ?>">
+
+<?php if ($edit or $addnew) { ?>
+<table align="center" border="0" cellpadding="5" cellspacing="0">
+<tr> 
+	<td align="right"><b><?php print_string("name"); ?>:</b></td>
+    <td align="left">
+	<?php if ($addnew) { ?>
+		<input type="hidden" name="addnew" value="true" />
+	<?php } ?>
+	<?php if ($edit) { ?>
+		<input type="hidden" name="edit" value="<?php echo $edit; ?>" />
+	<?php } ?>
+        <input type="text" name="name" size="20" value="<?php echo p($form->name); ?>" alt="<?php print_string("name"); ?>" />
+    </td>
+</tr>
+</table>
+<br />
+<table align="center" border="0" cellpadding="5" cellspacing="0">
+   
+   <tr>
+      <td valign="top">
+          <?php
+              echo get_string('struserscourse', 'mail').": ".$numusers;
+          ?>
+      </td>
+      <td></td>
+      <td valign="top">
+          <?php
+              echo get_string('strselectedusers', 'mail').": ".count($SESSION->selectedto);
+          ?>
+      </td>
+   </tr>
+    <tr>
+      <td valign="top">
+          <select name="selectusers[]" size="10" id="selectusers" multiple
+                  onFocus="document.formgroups.adduser.disabled=false;
+                           document.formgroups.removeuser.disabled=true;
+                           document.formgroups.selectedto.selectedIndex=-1;" />
+			
+          <?php
+		  	if (count($teachers) > 0) {
+		  		echo "<OPTGROUP label='".get_string('teachers')."'>"; 
+			}
+            
+			foreach ($teachers as $teacher) {
+                $fullname = $teacher->firstname." ".$teacher->lastname." (".$teacher->username.")";
+                echo "<option value=\"$teacher->id\">".$fullname."</option>\n";
+            }
+			
+			if (count($teachers) > 0) {
+			  	echo "</OPTGROUP>";
+			}
+		
+          ?>
+		    
+			
+          <?php 
+		  	if (count($students) > 0) {
+		  		echo "<OPTGROUP label='".get_string('students')."'>";
+            }
+			
+			foreach ($students as $student) {
+                $fullname = $student->firstname." ".$student->lastname." (".$student->username.")";
+                echo "<option value=\"$student->id\">".$fullname."</option>\n";
+            }
+			
+			if (count($students) > 0) {
+				echo "</OPTGROUP>";
+			}
+          ?>
+		    
+          
+          </select></td>
+      <td valign="top">
+        <br />
+        <input name="adduser" type="submit" id="adduser" value="&rarr;" />
+        <br />
+        <input name="removeuser" type="submit" id="removeuser" value="&larr;" />
+        <br />
+      </td>
+      <td valign="top">
+          <select name="selectedto[]" size="10" id="selectedto" multiple
+                  onFocus="document.formgroups.adduser.disabled=true;
+                           document.formgroups.removeuser.disabled=false;
+                           document.formgroups.selectusers.selectedIndex=-1;">
+          <?php
+				$listauserselected = implode(',', $SESSION->selectedto);
+				
+				$selected = get_records_sql("SELECT id, firstname, lastname, username FROM {$CFG->prefix}user WHERE id in ($listauserselected) ORDER BY firstname ASC, lastname ASC, username ASC");
+				
+				$first = true;
+				
+				foreach ($selected as $sel) {
+					if (isteacher($course->id, $sel->id)) {
+						if ($first) {
+							echo "<OPTGROUP label='".get_string('teachers')."'>"; 
+							$first = false;
+						}
+				 		$fullname = $sel->firstname." ".$sel->lastname." (".$sel->username.")";
+                   		echo "<option value=\"$sel->id\">".$fullname."</option>\n";
+					}
+               	}
+				
+				if ($first = false) {
+					echo "</OPTGROUP>";
+				}
+				
+				$first = true;
+				
+				foreach ($selected as $sel) {
+					if (!isteacher($course->id, $sel->id)) {
+						if ($first) {
+							echo "<OPTGROUP label='".get_string('students')."'>"; 
+							$first = false;
+						}
+				 		$fullname = $sel->firstname." ".$sel->lastname." (".$sel->username.")";
+                   		echo "<option value=\"$sel->id\">".$fullname."</option>\n";
+					}
+               	}
+				
+				if ($first = false) {
+					echo "</OPTGROUP>";
+				}
+				
+          ?>
+         </select>
+         <br />
+         
+       </td>
+    </tr>
+
+</table>
+<br />
+<table align="center" border="0" cellpadding="5" cellspacing="0">
+<tr>
+	<td>&nbsp;</td>
+	<td align="left"><input type="submit" name="save" id="save" value="<?php  print_string("savechanges") ?>" />
+</td>
+</tr>
+</table>
+<br />
+
+<?php 
+} else {
+
+$table1 = new stdClass;
+	
+$strname = get_string("name");
+$strmembers = get_string("members","mail");
+$straction = "<a href='".$CFG->wwwroot."/mod/mail/groups.php?id=".$id."&amp;addnew=true&amp;clean=true'>".get_string("addgroup","mail")."</a>";
+
+$table1->head  = array ($strname, $strmembers, $straction);
+	
+$table1->align = array ("center", "center", "center");
+$table1->width = "100%";
+	 
+	if (!$groups = get_records_sql("SELECT * FROM {$CFG->prefix}mail_groups 
+               WHERE mailid = $mail->id")) {
+		$groups = array();
+	}
+	
+	foreach ($groups as $group) {
+		$strtextname = format_string($group->name);
+		$strtextmembers = mail_get_list_members_group($course->id, $group->id);
+		
+		$strtextaction = "<a href='".$CFG->wwwroot."/mod/mail/groups.php?id=".$id."&amp;edit=".$group->id."&amp;clean=true'>".get_string("edit","mail")."</a>   <a href='".$CFG->wwwroot."/mod/mail/groups.php?id=".$id."&amp;delete=".$group->id."'>".get_string("delete","mail")."</a>";
+		
+		$table1->data[] = array ($strtextname, $strtextmembers, $strtextaction);
+		
+	}
+	
+	print_table($table1);
+
+}
+?>
+
+</form>
+
