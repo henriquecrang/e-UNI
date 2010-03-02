@@ -1,0 +1,30 @@
+﻿/* Core */a{
+   color:#0000ff;
+}
+a:link {    color: #003a99;}a:visited {    color: #003a99;}a:hover {    color: #02679c;
+	text-decoration:none;}a.dimmed:link,a.dimmed:visited {  color:#AAAAAA;}/*** *** Top Menu ***/#top_menu {	
+	background:url('images/default/barra_menu.png') no-repeat left;}
+
+#top_menu_bkg{
+	background:#f37205 url('images/default/top_menu.gif') repeat-x top center;
+}
+
+#top_menu ul li {	/*background:url('images/default/top_menu_line.gif') right top no-repeat;*/}	
+
+/*** *** Header ***/#logo { 
+  background: url('images/default/logo.png') no-repeat left top;
+  width: 398px;
+  height: 100px;
+  left: 0px;
+  float:left;
+} 
+
+#header {
+  background: url('images/default/header_grad.png') repeat-x;
+  height: 100px;
+}
+
+
+h1.headermain {  background-color: transparent;}
+.header-profilename, .header-profilename a {	background-color: transparent;	color:#3a7170;}.header-profilename, .header-profilename a:hover {	background-color: transparent;	color: #f9efc5;	text-decoration:none;}.header-profileoptions {	background-color: transparent;	color:#dfdfdf;}.header-profileoptions, .header-profileoptions a {	background-color: transparent;	color:#3a7170;}.header-profileoptions a:hover {	background-color: transparent;	color: #b68929;	text-decoration:underline;
+	}

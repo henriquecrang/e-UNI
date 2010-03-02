@@ -1,0 +1,403 @@
+/**************************************
+ * THEME NAME: euni
+ *
+ * Files included in this sheet:
+ *
+ *   euni/css/euni_layout.css
+ *   euni/css/euni_color.css
+ *   euni/css/euni_fonts.css
+ *   euni/css/euni_topmenu.css
+ *   euni/css/euni_default.css
+ *   euni/css/euni_barragov.css
+ *   euni/css/euni_barraac.css
+ **************************************/
+
+/***** euni/css/euni_layout.css start *****/
+
+﻿/* Core */body {    margin: 5px;}body, p, th, td, li, .sideblock .content {  line-height:1.4;}#surround {  margin-left: auto;   margin-right: auto;  max-width: 960px;}h1.main,h2.main,h3.main,h4.main,h5.main,h6.main {  text-align: left;  padding-left: 5px;} h1, h2, h3, h4 {  text-align: left;}h1 {  padding: 6px;}h2 {  padding: 4px;}h2.headingblock.header  {border: 1px;	}h2.main  {border: 0px;	}h3 {  padding: 3px;  }#layout-table #left-column, #layout-table #right-column {    /*border: 1px solid;*/    border: none;}#left-column .hidden .header, #right-column .hidden .header {border-bottom-style:dashed;border-bottom-width:1px;}#layout-table {  border: none;}#content {clear:both;}  h1, h2, h3, th.header {  border-width: 0px;  border-style: solid; }h4 {  border-bottom-style: solid;  border-bottom-width:1px; }input, select {  padding: 0px;}#layout-table #middle-column{  vertical-align:top;  padding-left:5px;  padding-right:5px;}#layout-table #left-column{  vertical-align:top;  padding-left:5px;  padding-right:0px;}#layout-table #right-column{  vertical-align:top;  padding-left:0px;  padding-right:5px;}.sitetopic {  padding:0px;  margin: 0px;}.generaltable {  border-width:0px; }.glossarytable {  border-width:1px;   border-style:solid; }.generalbox {  border-width:1px;   border-style:solid;   padding: 5px;   margin-bottom:30px;}.sitetopiccontent {  border-width:1px;  border-style:solid;}.clearfix {  min-width: 0;  /* overflow: hidden; */ }.clearfix:after {  /* content: "<!-- -->";  */  content: ".";   display: block;   height: 0;   clear: both;   visibility: hidden;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}/* End hide from IE-mac *//*** *** Header ***/#header-home {  /* padding:1em 0.5em; */  border-width:0px;  border-style:solid;}#header {  /* height:50px; */  border-width:0px;  border-style:solid;}.headermain, h1.headermain {  margin:0%;  padding:0%;  border-width: 0px;  padding-left: 5px;}.headermenu {  float:right;  text-align:right;}#header-profileblock {  text-align:right;}
+
+.header-profilename, .header-profilename a{
+}#header-profilepic {  text-align:right;  margin: 5px;  width: 80px;  height: 80px;  border: 1px solid #999999;}#header-profilename {  text-align:right;  margin-right: 5px;}#header-profileoptions {  text-align:right;  margin-right: 5px;}#header-profileoptions ul li { padding-left: 10px;display: inline; }#header-profileoptions .loginform { width: 5em;margin-left:4px;display: inline; }.navbar {  width:100%;  padding:3px 0.5em;  border-bottom:1px;  border-style:solid;
+}div.navbar {  width: auto;}table.navbar {  width: 100%;}.navbar .navbutton form {  float: left;}.navbar .navbutton {  margin-top: 3px;}.navbar .breadcrumb {  float:left;  margin:0.2em 0em;}.breadcrumb ul {  padding:0%;  margin:0%;  text-indent:0%;  list-style:none;}.breadcrumb li {  display:inline;}.navbar .navbutton,.navbar .menu {  float:right;}#footer .navbar {  margin-top: 4em;}/*** *** Login ***/TABLE.loginbox {  margin-top: 40px;}.loginbox .header {  border-width:1px;  border-style:solid;  border-bottom-width: 0px;}.loginbox .content {  border-top-width: 1px;}/*** *** Footer ***/ #footer {  text-align:center;  margin-top: 4px;  margin-bottom: 0px;  padding: 4px;} #footer p.helplink { margin-bottom: 0px;}/*** *** Blocks ***/.sideblock {}.sideblock .content {  padding: 4px;  border-bottom: 1px;  border-top: 0px;  border-left: 1px;  border-right: 1px;  border-style: solid;}.sideblock .header, {  border-bottom: 0px;  border-top: 1px;  border-left: 1px;  border-right: 1px;  border-style: solid; }.sideblock .header h2 {  border-width: 0px;  padding-top: 4px; }.sideblock .header .hide-show-image { padding-top: 4px;} .sideblock .footer {  border-top-width:1px;  border-top-style:dashed;  margin-top: 4px;  margin-bottom: 4px;}  /*** *** Calendar ***/  #calendar .maincalendar,#calendar .sidecalendar,#calendar .maincalendar .event {  border:1px solid;  padding:4px;} #calendar .sideblock .header {  border-left:0px solid !important;  border-top:0px solid !important;  border-right:0px solid !important;  border-bottom:0px solid !important;}  #calendar .today,.minicalendar .today {  border:1px solid !important;} table.minicalendar {  width: 100%;  margin:10px auto;  padding:2px;  border-width:1px;  border-style:solid;  border-collapse:separate;  border-spacing:1px !important;}table.minicalendar tr.weekdays th {   border-style: none;}table.minicalendar tr td.day {  border-style: solid;  border-width: 1px;}table.minicalendar tr.weekdays th abbr {  border-style: none;  }  table.calendarmonth {  border-collapse:separate;  border-spacing:1px !important;  border: none;}table.calendarmonth tr td  {  border-style: solid;  border-width: 1px;}.cal_popup_bg {  padding:0px;  margin:0px;  border:1px solid;}/*** *** Course ***/
+.coursebox{
+  border-left: 0px;
+  border-right: 0px;
+
+}
+.headingblock {  border-width:1px;  border-style:solid;  padding:4px;}.categorybox .category,.categorybox .category {  border-bottom: solid;  border-width: 1px;  padding-top: 7px;}#course-view .section .left {  border-right-width: 1px;  border-right-style: dashed;}#course-view .section.hidden .content,#course-view .section.hidden .side {  border-width: 1px;  border-style: dashed;}#course-view .section td.content ul.section.img-text {	line-height: 22px;}#course-view .section td.content ul.section.img-text li.activity.label {	line-height: 16px;	margin-bottom: 5px;}
+#course-view .section td.side{
+  border:0px
+}
+
+.coursebox .info {
+  display: block;
+  width: 95%;
+}
+
+.coursebox .info .name {  padding-bottom: 5px;  }
+.coursebox .summary{
+  float: left;
+  width: 95%;
+  padding-left: 15px
+}
+.tabrow0 {    padding-top: 4px; } .courseboxes { width: 95%;}/*** *** Modules: glossary ***/.entry .concept,.entryheader .concept {   margin-top: 5px;   margin-bottom: 10px;}.glossarypost.continuous {	padding: 5px;}/*** *** Error message ***/.errorbox {/*   color:#ffffff; */   border-width: 2px;}/*** *** Modules: Forum ***/.forumpost {  max-width: 650px;   
+  width: auto;  overflow:none;}.forumpost img {  max-width: 100%;}
+
+.forumheaderlist, .forumpost{
+  border-top-width: 1px;
+  border-right-width-value: 0px;
+  border-bottom-width: 1px;
+  border-left-width-value: 0px;
+}
+
+
+/*Anexos do tópico*/
+.forumpost .attachments{
+  padding-top: 7px;
+  padding-right: 7px;
+  padding-bottom: 7px;
+  padding-left: 0px;
+}
+
+/*Conteudo do topico*/
+.forumpost .content{
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px
+}
+.forumpost .left{
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+/*Comando de responder, editar, etc do tópico*/
+
+.forumpost .commands{
+  padding:5px;
+  margin-top:10px;
+  background-color:#f0f0f0;
+}
+
+/*** *** Modules: Online users ***/
+/*Atributos do avatar na tela de mensagens*/
+.userpicture, .picture user, .picture teacher{ 
+  width:60px;
+  height:60px;
+  margin:0px 0 0px 0;
+}
+/*Atributos de mensagens na tela de Usuários Online*/
+.sideblock img.userpicture{
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+
+.block_online_users .listentry div.user, .block_messages .listentry div.user{
+  padding-bottom:3px;
+}/*                      Barra do MEC                               */#mecimg{	width:960px;	height:6px;	margin: 0 0 0 0;	padding: 0 0 0 0;}#mec {	height:27px;	width:100%;	margin:0;	padding: 0px 0px 0px 0px;	background-image: url(images/barragov/topo_barra.gif);	background-repeat: no-repeat;	background-position: top center;}#mecConteudo {	padding: 5px;}#mec a {	float:left;	background:url(images/barragov/bandeira.bmp) no-repeat;	display:block;	font:bold 12px Arial;	color:#000;	line-height:21px;	text-decoration:none;	padding-left:34px}#mec select {	float:right;	font-size:0.8em;	margin-top: 1px;	background: #fcc732;	border: 1px solid #836000;}/*                 Fim    -    Barra do MEC                               *//* Barra de Acessibilidade */
+#ace_conteudo{
+	width:450px;
+	height:30px;   
+	background: url('images/default/b_02.gif') no-repeat left;
+	
+	
+	
+}
+#ace_conteudo p {margin:0 0 0 0; font-size:1em; text-align:right; position:relative; left:500px;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
+	width:100%;
+	height:30px;	}
+
+#ace_conteudo img{
+	padding-top: 5px;
+}/*              Fim da barra de acessibilidade                */
+/***** euni/css/euni_layout.css end *****/
+
+/***** euni/css/euni_color.css start *****/
+
+﻿/* Core */body {  background:#eeeeee;  color:#555555;}
+#surround {  background: #fafafa;  border-top: 10px solid #ffffff;  border-right: 10px solid #ffffff;  border-bottom: 10px solid #ffffff;  border-left: 10px solid #ffffff; }h1 {  background-color: #cccccc;  border-color: #cccccc;  color: #ffffff;}h2 {  background: #fbfbfb;  border-color:#cccccc;  color: #3a7170;}h2 .headingblock, .header  {    background-color: #000000    color: #3a7170;
+    	}
+h3 {  border-color:#cccccc;}h4 {  border-color:#cccccc;}.headermenu {  color: #cccccc;}.headermenu a {  color: #3a7170;}th {  background: #d7d7db url('images/sideheader.jpg') repeat-x;  border-color:#cccccc;  color: #3a7170;}th.header,td.header,div.header {  background: #d7d7db url('images/sideheader.jpg') repeat-x;  border-color:#cccccc;  color: #3a7170;}th.header a,td.header a,div.header a {  color: #555555;}th.header {  border-color: #cccccc;}#left-column .hidden .header, #right-column .hidden .header {  border-color:#cccccc;}#layout-table #left-column, #layout-table #right-column {    /*background-color: #ffffff;*/    border-color:#cccccc;}.generalbox {  border-color:#cccccc;  background-color:#FFFFFF;}.generaltable,.generaltable td {  border-color:#cccccc;  /* background-color:#FFFFFF; */}/* .generaltable .r0 td.cell.c0 { background-color:#cccccc; } */.generaltable .r0 { background-color:#ffffff; }.generaltable .r1 { background-color:#ffffff; }.generaltable .r1 td.cell.c0 {border-color:#cccccc; /* background-color:#555555; */}.navbar, .navbar a {  background-color: #f5f5f5;  color: #555555;
+  border-color:#d0d0d0;}.sitetopiccontent {  border-color:#a0a0a0;  background-color:#FFFFFF;}.highlight {  background-color:#cccccc;}.highlight2 {  color:#cccccc; /* highlight missing terms in forum search */}/*** *** Roles ***/.rolecap .inherit.capdefault, .rolecap .allow.capdefault {  background-color:#555555;}#admin-roles-override .capcurrent {  background-color:#555555;}/*** *** Header ***//***  *** Login ***/.loginbox,.loginbox.twocolumns .loginpanel,.loginbox .subcontent {  border-color:#cccccc;}
+
+.loginbox,.loginbox.twocolumns .loginpanel,.loginbox .subcontent a{
+  color:#3e7170;
+}.loginbox .content {  border-color:#cccccc;}/*** *** Footer ***/ #footer {background-color:#e0e0e0;} #footer p.helplink {}/*** *** Blocks ***/ .sideblock {   color:#555555;   background-color: transparent;   border-color: #cccccc;}.sideblock, .sideblock .content {   border-color: #f0f0f0;   background-color:#ffffff;   color:#555555;}.sideblock .header, .sideblock .header h2 { background: url(images/sideheader.jpg) repeat-x; background-color:#fefefe;  color: #3a7170; border-color: #cccccc;}.sideblock hr {  color:#cccccc;}.sideblock .footer {  border-top-color:#cccccc;}.sideblock .content .post .head .date,.sideblock .content .post .head .name {  color: #555555;}/*** *** Calendar***/ #calendar .maincalendar,#calendar .eventlist .event {  border-color: #cccccc;  background: #ffffff;}#calendar .maincalendar .header {  border-color: #cccccc;  color: #555555;  background: #d7d7db url('images/sideheader.jpg') repeat-x;}#calendar .sideblock {  border-left: #cccccc !important;  border-top: #cccccc !important;  border-right: #cccccc !important;  border-bottom: #cccccc !important;}#calendar .sideblock, {  background: #ffffff;}#calendar .event {  border-color: #ff0000;}#calendar .maincalendar table.calendarmonth th {  border-color: #cccccc;}#calendar .maincalendar table.calendarmonth td {  border-color: #cccccc;}table.calendarmonth tr td {   border-color:#cccccc;}table.minicalendar {  border-color:#cccccc;  }table.minicalendar tr.weekdays th {  background-color:#555555;  border-color:#cccccc;}table.minicalendar tr td.day {   border-color:#cccccc;  }  table.minicalendar tr td.weekend {  border-color:#cccccc;  color: red;  }  #calendar .today,.minicalendar .today {  border-color:#ff0000 !important;}  /* colors for calendar events */#calendar .event_global,.minicalendar .event_global,.block_calendar_month .event_global {  border-color:#def2ba !important;  background-color:#def2ba;}#calendar .event_course,.minicalendar .event_course,.block_calendar_month .event_course {  border-color:#c6dfeb !important;  background-color:#c6dfeb;}#calendar .event_group,.minicalendar .event_group,.block_calendar_month .event_group {  border-color:#feffc2 !important;  background-color:#feffc2;}#calendar .event_user,.minicalendar .event_user,.block_calendar_month .event_user {  border-color:#d9c6e2 !important;  background-color:#d9c6e2;}.cal_popup_fg {  background-color:#ffffff;}.cal_popup_bg {  border-color:#cccccc;  background-color:#ffffff;}/*** *** Course ***/.headingblock {  border-color: #cccccc;  color: #3a7170;}/* course */.headingblock .outline {  border-color:#cccccc;  color: #3a7170;  }.coursebox {  border-color:#dddddd;  background: #ffffff;}.coursebox .info { background: #ffffff;}
+
+.coursebox .summary {
+ color:#222222;
+}.categoryboxcontent,.courseboxcontent {  border-color:#dddddd;  background: #FFFFFF;}.categorybox .category,.categorybox .category {  border-color: #cccccc;}#course-view .section.main .content {  border-color: #cccccc;  background-color: #FFFFFF;}#course-view .section.main .side {  border-color: #cccccc;  background-color: #FFFFFF;}#course-view .current .right.side,#course-view .current .left.side {  background-color: #f0f0f0;}#course-view .section.hidden .content,#course-view .section.hidden .side {  border-color:#cccccc; }
+
+.titlecolor_forum{
+  color:#2faebe;
+  font-weight:bold;
+}
+.titlecolor_quiz{
+ color:#990000;
+
+}/*** *** Tabs ***/ul.tabrow li {  background:url(pix/tab/left.gif) top left no-repeat;}.tabs .side {  border-color: #cccccc;}.tabrow td {  background:url(pix/tab/left.gif) top left no-repeat;}.tabrow td .tablink {  background:url(pix/tab/right.gif) top right no-repeat;}.tabrow td:hover {  background-image:url(pix/tab/left_hover.gif);}.tabrow td:hover .tablink {  background-image:url(pix/tab/right_hover.gif);}.tabrow .last span {  background:url(pix/tab/right_end.gif) top right no-repeat;}.tabrow .selected {  background:url(pix/tab/left_active.gif) top left no-repeat;}.tabrow .selected .tablink {  background:url(pix/tab/right_active.gif) top right no-repeat;}.tabrow td.selected:hover {  background-image:url(pix/tab/left_active_hover.gif);}.tabrow td.selected:hover .tablink {  background-image:url(pix/tab/right_active_hover.gif);}
+.notifyproblem{
+	color:#3a7170;
+}
+
+form.mform .required label{
+	color:#a05252;
+}
+/*** *** Modules: Forum ***/.forumheaderlist, .forumpost {  border-color:#cccccc;}
+/*Título do topico de resposta*/
+
+.forumpost .topic{
+  background-color:#eeeeee;
+}
+.forumpost .content {  background: #ffffff;}.forumpost .left {  background:#f3f3f3; }
+.forumpost .starter .topic .subject{
+  color:#44ffff;
+}
+
+/*Título do topico do forum*/.forumpost .topic .subject{
+  color:#333333;
+}
+/*Autor do topico*/
+.forumpost .topic .author{
+  color:#333333;
+}
+.forumpost .topic {  border-bottom-color: #cccccc;  background-color: #f3f3f3;}/*Box do primeiro post do tópico*/.forumpost .starter {  background-color: #dfdfdf;}.forumheaderlist .discussion .starter {  background:#ffffff; }.forumheaderlist td {  border-color: #cccccc;}.sideblock .post .head {  color:#ffffff;}.forumthread .unread {  background: #ffffff;}#mod-forum-discuss .forumpost {  background: none;}#mod-forum-discuss .forumpost.unread .content {  border-color: #cccccc; } #mod-forum-discuss .forumthread .unread {} #mod-forum-index .unread {}
+
+/*Comentário sobre edição em um tópico*/
+.forumpost .edited{
+  color:#444444;
+}/*** *** Modules: glossary ***/.picture,.entryattachment,.entryapproval {  background-color: #3b5998; } .entrybox {  border-color: #cccccc; }.glossarypost.dictionary,.glossarypost.fullwithauthor,.glossarypost.fullwithoutauthor,.glossarypost.continuous, .glossarypost.encyclopedia,.glossarypost.faq {  border-color: #cccccc;  background-color: #FFFFFF;}.glossarycategoryheader th  {  background-color: #F7F6F1;}.glossarycategoryheader h2, .glossarypost .concept h3 {  background-color: #FFFFFF}/*** *** Error message ***/.errorbox {/*   color:#ffffff; */   border-color:#990000;   background-color:#ffffff; }.errorboxcontent {   background-color:#ffffff;} /*** *** Grade ***/.grade-report-grader table#user-grades td.cell span.gradepass {  background-color: #C2EBBD; }.grade-report-grader table#user-grades td.cell span.gradefail {  background-color: #EBC4BD;}/*** *** User ***/.userinfobox { border-color: #cccccc;}.userinfobox .side { background-color: #ffffff;}.userinfobox .content { background-color: #ffffff;}
+/***** euni/css/euni_color.css end *****/
+
+/***** euni/css/euni_fonts.css start *****/
+
+/* Core */.clearer {  font-size:1px;}body, td, li, input, select {    font-family: Arial, Helvetica, sans-serif;    font-size : 13px;}th {  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size: 11px;  font-weight: bold;}a:link {    text-decoration: none;}a:visited {    text-decoration: none;}a:hover {    text-decoration: none;}h1, h2, h3, h4 {    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;}h1 {    font-size:1.2em;    font-weight: bold;}h2 {    font-size:1.15em;	letter-spacing: -1px;}h2.headingblock.header  {    font-size:1.15em;	letter-spacing: -1px;	}h3 {    font-size:1.1em;}h4 {    font-weight:bold;}.headermain {  font-size: 1.7em;}th.header,td.header,div.header,.headingblock {    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;    font-weight: bold;    font-size: 1em;}.categorybox .category {/*  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; */    font-size: 1.2em;    font-weight: bold;}.generaltable td.cell.c0 {  font-weight: bold;}/*** *** Header ***/ .breadcrumb {    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;    font-size:1em;    font-weight:normal;}.breadcrumb a {    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;    font-size:1em;    font-weight:normal;}.logininfo,#header-home .headermenu font {     font-size:.8em;}#header-profilename a {	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;    	font-size:1.8em;	letter-spacing: -2px;	text-decoration: none;	font-weight:bold;}#header-profileoptions a {	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;	text-decoration: none;	letter-spacing: -1px;} /*** *** Blocks ***/ .sideblock .footer {    font-size:0.85em;    text-align: left;}
+
+/***
+*** Formularios
+***/
+.notifyproblem {
+	font-weight:bold;
+}
+/*** *** Calendar ***/#calendar .maincalendar table.calendarmonth td {  font-size:1em;}#calendar .maincalendar .calendar-controls .current {  font-weight: bold;}#calendar .sidecalendar .filters {  font-size:0.75em  }table.minicalendar tr.weekdays th {  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  font-size:0.7em;  font-weight:normal;  }table.minicalendar tr td {  font-size:1em;  }  /*** *** Course ***/  #course-view .section .left {  font-weight: bold;  font-size: 1.2em;}
+
+/*Semanas*/
+#course-view .section .weekdates{
+  font-size:0.8em;
+}
+/*Títulos das disciplinas*/.coursebox .info .name {  font-weight: bold;  font-size: 1.1em;}
+.coursebox .summary{
+  font-size: 0.9em;
+}
+
+.coursebox .teachers, .coursebox .cost{
+  /*font-size: 0.4em;*/
+}
+
+/*Lista dos professores-coordenadores*/
+.coursebox ul.teachers li{
+  font-size:0.9em;
+}
+/* Accessibility: only certain fonts support Unicode chars like &#x25BA; in IE6 */.arrow, .arrow_button input {  font-family: Arial,Helvetica,sans-serif;}/*span.arrow {  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;} */p.arrow_button input {  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;}/*Accessibility: resizable icons. */img.resize {  width: 1em;  height: 1em;}/*** *** Forum ***/ .forumpost .topic .subject {  font-weight: bold;  font-size: 1.2em;}
+/*Comentário sobre edição*/
+.forumpost .edited{
+  font-size: 0.8em;
+}
+/*** *** Glossary ***/.glossarypost div.concept h3,.glossarypost.continuous .concept {  display: inline;}
+/***** euni/css/euni_fonts.css end *****/
+
+/***** euni/css/euni_topmenu.css start *****/
+
+/* Core */
+
+#top_menu {
+	height:43px;
+	clear:both;
+	margin-right:0px;
+	margin-left:0px;
+	
+	
+}
+
+/*#top_menu li.bkg_b03{
+	background:url('images/default/b_03.gif') no-repeat;
+}
+
+#top_menu li.bkg_b04{
+	background:url('images/default/b_04.gif') no-repeat;
+}*/	
+
+#top_menu ul {
+	padding:0;
+	margin:0;
+	list-style:none;
+	float:left;
+	z-index: 9999;
+	
+}
+#top_menu ul li {
+	list-style:none;
+	float:left;
+	height:43px;
+	white-space:nowrap;
+	z-index: 9999;
+}
+#top_menu ul li div{
+	position:relative;
+	zoom:1;
+	z-index:10000;
+}
+#top_menu ul li a {      /*Atributos de links menu superior*/
+	display:block;
+	height:30px;
+	margin-left:2px;
+	padding: 10px 17px 0 17px;
+	color: #ffffff;
+	background:none;
+	
+	}
+	
+#top_menu ul li a:hover{  /*Atributos de links HOVER do menu superior*/
+	color:#FFFFFF;
+	background:none;	
+}
+
+#top_menu ul li.home a:hover{
+	background:none;
+}
+#top_menu ul li.line {
+	padding:0;
+}
+
+#top_menu ul li.home a {
+	padding-top:12px;
+	background:none;
+}
+
+#top_menu ul ul{
+	padding:10px 25px;
+	margin:0;
+	list-style:none;
+	position:absolute;
+	background:#ffffff;
+	left:-2px;
+	border-bottom: solid 1px #83c8ff;
+	border-left: solid 1px #cccccc;
+	border-right: solid 1px #cccccc;
+	display:none;
+	top:43px;
+	z-index: 1000;
+}
+
+#top_menu ul ul hr{
+	border: 0;
+	color: #cccccc;
+	height: 1px;
+	width: 100%;
+	text-align: left;
+
+	}
+
+#top_menu ul li:hover ul{
+	display: block;
+}
+#top_menu li ul li{
+	list-style:none;
+	float:none;
+	background:none;
+	padding:0;
+	margin:0;
+	height: auto;
+	line-height:18px;
+}
+#top_menu li ul li a:hover {
+	background:none;
+	color:#83c8ff;
+
+}
+#top_menu li ul li a { /*Itens do menu dropdown*/
+	margin:0;
+	display:block;
+	height: auto;
+	color:#008db0;
+	background:none;
+}
+
+#top_menu_date a {
+	float:right;
+	padding: 22px 5px 0 17px;
+	color: #dddddd;
+	text-decoration:none;
+	background:none;
+	font-size: 12px;
+}
+
+#top_menu_date a:hover {
+	color: #f0f0f0;
+	text-decoration:none;
+	background:none;
+}
+/***** euni/css/euni_topmenu.css end *****/
+
+/***** euni/css/euni_default.css start *****/
+
+﻿/* Core */a{
+   color:#0000ff;
+}
+a:link {    color: #003a99;}a:visited {    color: #003a99;}a:hover {    color: #02679c;
+	text-decoration:none;}a.dimmed:link,a.dimmed:visited {  color:#AAAAAA;}/*** *** Top Menu ***/#top_menu {	
+	background:url('images/default/barra_menu.png') no-repeat left;}
+
+#top_menu_bkg{
+	background:#f37205 url('images/default/top_menu.gif') repeat-x top center;
+}
+
+#top_menu ul li {	/*background:url('images/default/top_menu_line.gif') right top no-repeat;*/}	
+
+/*** *** Header ***/#logo { 
+  background: url('images/default/logo.png') no-repeat left top;
+  width: 398px;
+  height: 100px;
+  left: 0px;
+  float:left;
+} 
+
+#header {
+  background: url('images/default/header_grad.png') repeat-x;
+  height: 100px;
+}
+
+
+h1.headermain {  background-color: transparent;}
+.header-profilename, .header-profilename a {	background-color: transparent;	color:#3a7170;}.header-profilename, .header-profilename a:hover {	background-color: transparent;	color: #f9efc5;	text-decoration:none;}.header-profileoptions {	background-color: transparent;	color:#dfdfdf;}.header-profileoptions, .header-profileoptions a {	background-color: transparent;	color:#3a7170;}.header-profileoptions a:hover {	background-color: transparent;	color: #b68929;	text-decoration:underline;
+	}
+/***** euni/css/euni_default.css end *****/
+
+/***** euni/css/euni_barragov.css start *****/
+
+/*                      Barra do MEC                               */#mecimg{	width:960px;	height:6px;	margin: 0 0 0 0;	padding: 0 0 0 0;}#mec {	height:27px;	width:100%;	margin:0;	padding: 0px 0px 0px 0px;	background-image: url(images/barragov/topo_barra.gif);	background-repeat: no-repeat;	background-position: top center;}#mecConteudo {	padding: 5px;}#mec a {	float:left;	background:url(images/barragov/bandeira.bmp) no-repeat;	display:block;	font:bold 12px Arial;	color:#000;	line-height:21px;	text-decoration:none;	padding-left:34px}#mec select {	float:right;	font-size:0.8em;	margin-top: 1px;	background: #fcc732;	border: 1px solid #836000;}/*                 Fim    -    Barra do MEC                               */
+/***** euni/css/euni_barragov.css end *****/
+
+/***** euni/css/euni_barraac.css start *****/
+
+/* Barra de Acessibilidade */
+#ace_conteudo{
+	width:450px;
+	height:30px;   
+	background: url('images/default/b_02.gif') no-repeat left;
+	
+	
+	
+}
+#ace_conteudo p {margin:0 0 0 0; font-size:1em; text-align:right; position:relative; left:500px;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
+	width:100%;
+	height:30px;	}
+
+#ace_conteudo img{
+	padding-top: 5px;
+}/*              Fim da barra de acessibilidade                */
+/***** euni/css/euni_barraac.css end *****/
+

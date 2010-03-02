@@ -1,0 +1,16 @@
+/* Barra de Acessibilidade */
+#ace_conteudo{
+	width:450px;
+	height:30px;   
+	background: url('images/default/b_02.gif') no-repeat left;
+	
+	
+	
+}
+#ace_conteudo p {margin:0 0 0 0; font-size:9px; text-align:right; position:relative; left:500px;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
+	width:100%;
+	height:30px;	}
+
+#ace_conteudo img{
+	padding-top: 5px;
+}/*              Fim da barra de acessibilidade                */

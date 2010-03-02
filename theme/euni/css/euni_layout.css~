@@ -1,0 +1,111 @@
+﻿/* Core */body {    margin: 5px;}body, p, th, td, li, .sideblock .content {  line-height:1.4;}#surround {  margin-left: auto;   margin-right: auto;  max-width: 960px;}h1.main,h2.main,h3.main,h4.main,h5.main,h6.main {  text-align: left;  padding-left: 5px;} h1, h2, h3, h4 {  text-align: left;}h1 {  padding: 6px;}h2 {  padding: 4px;}h2.headingblock.header  {border: 1px;	}h2.main  {border: 0px;	}h3 {  padding: 3px;  }
+#mod-left-column{
+ width:180px;
+ vertical-align: top;
+ padding-left: 5px;
+ padding-top: 10px;
+ padding-right: 0px;
+}
+
+#mod-midle-column{
+ width:500px
+}
+#layout-table #left-column, #layout-table #right-column {    /*border: 1px solid;*/    border: none;}#left-column .hidden .header, #right-column .hidden .header {border-bottom-style:dashed;border-bottom-width:1px;.}#layout-table {  border: none;}#content {clear:both;}  h1, h2, h3, th.header {  border-width: 0px;  border-style: solid; }h4 {  border-bottom-style: solid;  border-bottom-width:1px; }input, select {  padding: 0px;}#layout-table #middle-column{  vertical-align:top;  padding-left:5px;  padding-right:5px;}#layout-table #left-column{  vertical-align:top;  padding-left:5px;  padding-right:0px;}#layout-table #right-column{  vertical-align:top;  padding-left:0px;  padding-right:5px;}.sitetopic {  padding:0px;  margin: 0px;}.generaltable {  border-width:0px; }.glossarytable {  border-width:1px;   border-style:solid; }.generalbox {  border-width:1px;   border-style:solid;   padding: 5px;   margin-bottom:30px;}.sitetopiccontent {  border-width:1px;  border-style:solid;}.clearfix {  min-width: 0;  /* overflow: hidden; */ }.clearfix:after {  /* content: "<!-- -->";  */  content: ".";   display: block;   height: 0;   clear: both;   visibility: hidden;}/* Hides from IE-mac \*/* html .clearfix {height: 1%;}.clearfix {display: block;}/* End hide from IE-mac *//*** *** Header ***/#header-home {  /* padding:1em 0.5em; */  border-width:0px;  border-style:solid;}#header {  /* height:50px; */  border-width:0px;  border-style:solid;}.headermain, h1.headermain {  margin:0%;  padding:0%;  border-width: 0px;  padding-left: 5px;}.headermenu {  float:right;  text-align:right;}#header-profileblock {  text-align:right;}
+
+.header-profilename, .header-profilename a{
+}#header-profilepic {  text-align:right;  margin: 5px;  width: 80px;  height: 80px;  border: 1px solid #999999;}#header-profilename {  text-align:right;  margin-right: 5px;}#header-profileoptions {  text-align:right;  margin-right: 5px;}#header-profileoptions ul li { padding-left: 10px;display: inline; }#header-profileoptions .loginform { width: 5em;margin-left:4px;display: inline; }.navbar {  width:100%;  padding:3px 0.5em;  border-bottom:1px;  border-style:solid;
+}div.navbar {  width: auto;}table.navbar {  width: 100%;}.navbar .navbutton form {  float: left;}.navbar .navbutton {  margin-top: 3px;}.navbar .breadcrumb {  float:left;  margin:0.2em 0em;}.breadcrumb ul {  padding:0%;  margin:0%;  text-indent:0%;  list-style:none;}.breadcrumb li {  display:inline;}.navbar .navbutton,.navbar .menu {  float:right;}#footer .navbar {  margin-top: 4em;}/*** *** Login ***/TABLE.loginbox {  margin-top: 40px;}.loginbox .header {  border-width:1px;  border-style:solid;  border-bottom-width: 0px;}.loginbox .content {  border-top-width: 1px;}/*** *** Footer ***/ #footer {  text-align:center;  margin-top: 4px;  margin-bottom: 0px;  padding: 4px;} #footer p.helplink { margin-bottom: 0px;}/*** *** Blocks ***/.sideblock {}.sideblock .content {  padding: 4px;  border-bottom: 1px;  border-top: 0px;  border-left: 1px;  border-right: 1px;  border-style: solid;}.sideblock .header, {  border-bottom: 0px;  border-top: 1px;  border-left: 1px;  border-right: 1px;  border-style: solid; }.sideblock .header h2 {  border-width: 0px;  padding-top: 4px; }.sideblock .header .hide-show-image { padding-top: 4px;} .sideblock .footer {  border-top-width:1px;  border-top-style:dashed;  margin-top: 4px;  margin-bottom: 4px;}  /*** *** Calendar ***/  #calendar .maincalendar,#calendar .sidecalendar,#calendar .maincalendar .event {  border:1px solid;  padding:4px;} #calendar .sideblock .header {  border-left:0px solid !important;  border-top:0px solid !important;  border-right:0px solid !important;  border-bottom:0px solid !important;}  #calendar .today,.minicalendar .today {  border:1px solid !important;} table.minicalendar {  width: 100%;  margin:10px auto;  padding:2px;  border-width:1px;  border-style:solid;  border-collapse:separate;  border-spacing:1px !important;}table.minicalendar tr.weekdays th {   border-style: none;}table.minicalendar tr td.day {  border-style: solid;  border-width: 1px;}table.minicalendar tr.weekdays th abbr {  border-style: none;  }  table.calendarmonth {  border-collapse:separate;  border-spacing:1px !important;  border: none;}table.calendarmonth tr td  {  border-style: solid;  border-width: 1px;}.cal_popup_bg {  padding:0px;  margin:0px;  border:1px solid;}/*** *** Course ***/
+.coursebox{
+  border-left: 0px;
+  border-right: 0px;
+
+}
+.headingblock {  border-width:1px;  border-style:solid;  padding:4px;}.categorybox .category,.categorybox .category {  border-bottom: solid;  border-width: 1px;  padding-top: 7px;}#course-view .section .left {  border-right-width: 1px;  border-right-style: dashed;}#course-view .section.hidden .content,#course-view .section.hidden .side {  border-width: 1px;  border-style: dashed;}#course-view .section td.content ul.section.img-text {	line-height: 22px;}#course-view .section td.content ul.section.img-text li.activity.label {	line-height: 16px;	margin-bottom: 5px;}
+#course-view .section td.side{
+  border:0px
+}
+
+.coursebox .info {
+  display: block;
+  width: 95%;
+}
+
+.coursebox .info .name {  padding-bottom: 5px;  }
+.coursebox .summary{
+  float: left;
+  width: 95%;
+  padding-left: 15px
+}
+.tabrow0 {    padding-top: 4px; } .courseboxes { width: 95%;}/*** *** Modules: glossary ***/.entry .concept,.entryheader .concept {   margin-top: 5px;   margin-bottom: 10px;}.glossarypost.continuous {	padding: 5px;}/*** *** Error message ***/.errorbox {/*   color:#ffffff; */   border-width: 2px;}/*** *** Modules: Forum ***/.forumpost {  max-width: 650px;   
+  width: auto;  overflow:none;}.forumpost img {  max-width: 100%;}
+
+.forumheaderlist, .forumpost{
+  border-top-width: 1px;
+  border-right-width-value: 0px;
+  border-bottom-width: 1px;
+  border-left-width-value: 0px;
+}
+
+
+/*Anexos do tópico*/
+.forumpost .attachments{
+  padding-top: 7px;
+  padding-right: 7px;
+  padding-bottom: 7px;
+  padding-left: 0px;
+}
+
+/*Conteudo do topico*/
+.forumpost .content{
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px
+}
+.forumpost .left{
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+/*Comando de responder, editar, etc do tópico*/
+
+.forumpost .commands{
+  padding:5px;
+  margin-top:10px;
+  background-color:#f0f0f0;
+}
+
+/*** *** Modules: Online users ***/
+/*Atributos do avatar na tela de mensagens*/
+.userpicture, .picture user, .picture teacher{ 
+  width:60px;
+  height:60px;
+  margin:0px 0 0px 0;
+}
+/*Atributos de mensagens na tela de Usuários Online*/
+.sideblock img.userpicture{
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+
+.block_online_users .listentry div.user, .block_messages .listentry div.user{
+  padding-bottom:3px;
+}/*                      Barra do MEC                               */#mecimg{	width:960px;	height:6px;	margin: 0 0 0 0;	padding: 0 0 0 0;}#mec {	height:27px;	width:100%;	margin:0;	padding: 0px 0px 0px 0px;	background-image: url(images/barragov/topo_barra.gif);	background-repeat: no-repeat;	background-position: top center;}#mecConteudo {	padding: 5px;}#mec a {	float:left;	background:url(images/barragov/bandeira.bmp) no-repeat;	display:block;	font:bold 12px Arial;	color:#000;	line-height:21px;	text-decoration:none;	padding-left:34px}#mec select {	float:right;	font-size:0.8em;	margin-top: 1px;	background: #fcc732;	border: 1px solid #836000;}/*                 Fim    -    Barra do MEC                               *//* Barra de Acessibilidade */
+#ace_conteudo{
+	width:450px;
+	height:30px;   
+	background: url('images/default/b_02.gif') no-repeat left;
+	
+	
+	
+}
+#ace_conteudo p {margin:0 0 0 0; font-size:1em; text-align:right; position:relative; left:500px;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
+	width:100%;
+	height:30px;	}
+
+#ace_conteudo img{
+	padding-top: 5px;
+}/*              Fim da barra de acessibilidade                */

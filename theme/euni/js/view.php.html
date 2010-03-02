@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="pt-br" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="pt-br"><head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="view.php_arquivos/styles.css">
+<link rel="stylesheet" type="text/css" href="view.php_arquivos/styles_002.css">
+
+
+<script type="text/javascript" src="view.php_arquivos/yahoo-min.js"></script>
+<script type="text/javascript" src="view.php_arquivos/event-min.js"></script>
+<script type="text/javascript" src="view.php_arquivos/dom-min.js"></script>
+<script type="text/javascript" src="view.php_arquivos/connection-min.js"></script>
+<script type="text/javascript" src="view.php_arquivos/json-min.js"></script>
+<script type="text/javascript" src="view.php_arquivos/rate_ajax.js"></script>
+
+    <meta name="keywords" content="moodle, PSDM2009: Fórum de notícias ">
+    <title>PSDM2009: Fórum de notícias</title>
+    <link rel="shortcut icon" href="http://10.4.31.134/euni/theme/euni/favicon.ico">
+	<link rel="stylesheet" href="view.php_arquivos/euni_print.html" type="text/css" media="print">
+
+
+
+
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://10.4.31.134/euni/theme/euni/js/ie6png.js"></script>
+<![endif]-->
+
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://10.4.31.134/euni/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script type="text/javascript" src="view.php_arquivos/javascript-static.js"></script>
+<script type="text/javascript" src="view.php_arquivos/javascript-mod.php"></script>
+<script type="text/javascript" src="view.php_arquivos/overlib.js"></script>
+<script type="text/javascript" src="view.php_arquivos/overlib_cssstyle.js"></script>
+<script type="text/javascript" src="view.php_arquivos/cookies.js"></script>
+<script type="text/javascript" src="view.php_arquivos/ufo.js"></script>
+<script type="text/javascript" src="view.php_arquivos/dropdown.js"></script>  
+
+<script type="text/javascript" defer="defer">
+//<![CDATA[
+setTimeout('fix_column_widths()', 20);
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function openpopup(url, name, options, fullscreen) {
+    var fullurl = "http://10.4.31.134/euni" + url;
+    var windowobj = window.open(fullurl, name, options);
+    if (!windowobj) {
+        return true;
+    }
+    if (fullscreen) {
+        windowobj.moveTo(0, 0);
+        windowobj.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    windowobj.focus();
+    return false;
+}
+
+function uncheckall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+    }
+}
+
+function checkall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+    }
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+function getElementsByClassName(oElm, strTagName, oClassNames){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	var arrRegExpClassNames = new Array();
+	if(typeof oClassNames == "object"){
+		for(var i=0; i<oClassNames.length; i++){
+			arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames[i].replace(/\-/g, "\\-") + "(\\s|$)"));
+		}
+	}
+	else{
+		arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames.replace(/\-/g, "\\-") + "(\\s|$)"));
+	}
+	var oElement;
+	var bMatchesAll;
+	for(var j=0; j<arrElements.length; j++){
+		oElement = arrElements[j];
+		bMatchesAll = true;
+		for(var k=0; k<arrRegExpClassNames.length; k++){
+			if(!arrRegExpClassNames[k].test(oElement.className)){
+				bMatchesAll = false;
+				break;
+			}
+		}
+		if(bMatchesAll){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+}
+//]]>
+</script>
+    <!--	  <- não esquecer desse lixo ai-->  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="mod-forum course-5 dir-ltr lang-pt_br_utf8" id="mod-forum-view">
+<div id="surround">
+<div id="page">
+
+                      
+	
+
+<!-- Início da barra do governo-->
+
+<div id="mec">
+	<div id="mecConteudo">
+	<a href="http://www.mec.gov.br/" title="Ministério da Educação">Ministério da Educação</a>
+	<a href="http://www.brasil.gov.br/" tabindex="1" style="padding: 0pt; background: transparent none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; float: right; margin-left: 30px;" title="Portal do Governo Federal"><img src="view.php_arquivos/gov.gif" alt="Brasil, um país de todos"></a>
+		
+				
+		<form action="javascript:;">
+			<select onchange="if( options[selectedIndex].value ) { window.location.href= (options[selectedIndex].value); }">
+
+				<option selected="selected" value="0">Destaques do Governo</option>
+				<option value="http://www.brasil.gov.br">Portal do Governo Federal</option>
+				<option value="http://www.e.gov.br">Portal de Serviços do Governo</option>
+				<option value="http://www.radiobras.gov.br">Portal da Agência de Notícias</option>
+
+				<option value="http://www.previdenciasocial.gov.br/reforma">Reforma da Previdência</option>
+
+				<option value="http://www.fomezero.gov.br">Programa Fome Zero</option>
+			</select>
+		</form>
+		</div>
+</div>
+
+<!-- barra de acessibilidade -->
+
+<div id="acessibilidade">
+		<div id="ace_conteudo">
+		<div id="direita" class="direita">
+			
+			<p><span class="pular">Pular para:</span>
+			|<a href="#left-column" accesskey="m" class="atalho" title="Pular para o menu"> Menu (alt+M)</a> |
+			<a href="#middle-column" accesskey="c" class="atalho" title="Pular para o conteúdo">Conteúdo (alt+C)</a> |
+		
+			<script type="text/javascript" src="view.php_arquivos/changefontsize.js"></script>
+
+	Tamanho da letra: <a href="javascript:increaseFontSize();">
+			<img src="view.php_arquivos/btn-tamanho-mais.png" alt="botão +" style="margin-right: 5px;" border="0"></a>
+		
+			<a href="javascript:decreaseFontSize();"><img id="btn-tamanho-menos" alt="botão -" src="view.php_arquivos/btn-tamanho-menos.png"></a>
+			</p>
+		</div>		
+
+	</div>
+</div>
+
+<!-- fim barra de acessibilidade -->
+
+ <div id="header" class=" clearfix"><div id="logo"><a href="http://10.4.31.134/euni" style="display: block; width: 247px; height: 96px;"> </a></div><div id="header-profileblock"><table border="0">
+  <tbody><tr>
+    <td height="65" valign="bottom" width="600"><div class="header-profilename" id="header-profilename">
+    <a href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=5">Diogo Magalhães Martins </a>    </div></td>
+    <td rowspan="2" height="90" width="90"><div class="header-profilepic" id="header-profilepic">
+        <a href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=5"><img src="view.php_arquivos/pix.jpeg" title="Diogo Magalhães Martins" alt="Diogo Magalhães Martins" height="80px" width="80px"></a>      </div></td>
+  </tr>
+  <tr>
+    <td height="25" width="600"> <div class="header-profileoptions" id="header-profileoptions">
+    
+    
+    
+
+ <ul><li><a id="top_mensagens" href="#" onclick="return openpopup('/message/index.php','message',' menubar=0,location=0,scrollbars,status,resizable,width=400,height=500',0);">Você tem<b> 1 mensagem</b> </a>|</li><li><a href="http://10.4.31.134/euni/login/logout.php?sesskey=2QljEQvtBZ">Sair</a></li></ul>
+
+    
+    </div>
+    </td>
+  </tr>
+</tbody></table>
+</div>        
+	
+
+       
+    </div>     <div id="top_menu_bkg">
+     <div id="top_menu">
+     <div id="top_menu_date">
+<a href="http://10.4.31.134/euni/calendar/view.php"><script language="Javascript" type="text/javascript">
+//<![CDATA[
+<!--
+
+// Get today's current date.
+var now = new Date();
+
+// Array list of days.
+var days = new Array('Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira, ','Sexta-feira','Sábado');
+
+// Array list of months.
+var months = new Array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro');
+
+// Calculate the number of the current day in the week.
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+
+// Calculate four digit year.
+function fourdigits(number)     {
+        return (number < 1000) ? number + 1900 : number;
+                                                                }
+
+// Join it all together
+today =  days[now.getDay()] + " " +
+              date + " " +
+                          months[now.getMonth()] + " " +               
+                (fourdigits(now.getYear())) ;
+
+// Print out the data.
+document.write("" +today+ " ");
+  
+//-->
+//]]>
+</script>Terça-feira 02 Março 2010 </a>
+	
+	</div>
+    
+<ul>
+     
+       <li class="home"><div><a href="http://10.4.31.134/euni/"><img src="view.php_arquivos/home_icon.png" alt="" height="17" width="18"></a></div>
+       </li> 
+ 
+        <li class="bkg_b03"><div><a href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=1">Meu Perfil</a></div>
+
+ 
+ 	</li><li class="bkg_b04"><div><a href="http://10.4.31.134/euni/">Disciplinas</a>
+       		<ul>
+     
+
+	<li><a href="http://10.4.31.134/euni/course/view.php?id=3">Aspectos Biológicos das Deficiências - Auditiva</a></li>
+
+
+
+	<li><a href="http://10.4.31.134/euni/course/view.php?id=4">Batata do Desenvolvimento e da Cerveja</a></li>
+
+
+
+	<li><a href="http://10.4.31.134/euni/course/view.php?id=2">Sandbox</a></li>
+
+
+       		
+		
+		            </ul></div>
+ 
+ 
+ 	<!--<li><div><a href="http://10.4.31.134/euni/">Eventos</a></div>-->
+        </li><li><div><a href="http://10.4.31.134/euni/theme/euni/componentes/noticias/noticias.php">Notícias</a></div> 
+ 	</li><li><div><a href="http://10.4.31.134/euni/theme/euni/componentes/sobre/sobre_euni.php">Sobre o e-UNI</a></div>
+ 
+ 
+        
+					
+			</li></ul></div></div>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><h2 class="accesshide ">Você está aqui</h2> <ul>
+<li class="first"><a onclick="this.target='_top'" href="http://10.4.31.134/euni/">e-UNI</a></li><li> <span class="accesshide ">/&nbsp;</span><span class="arrow sep">►</span> <a onclick="this.target='_top'" href="http://10.4.31.134/euni/course/view.php?id=5">PSDM2009</a></li><li> <span class="accesshide ">/&nbsp;</span><span class="arrow sep">►</span> <a onclick="this.target='_top'" href="http://10.4.31.134/euni/mod/forum/index.php?id=5">Fóruns</a></li><li> <span class="accesshide ">/&nbsp;</span><span class="arrow sep">►</span> Fórum de notícias</li></ul></div>
+        <div class="navbutton"><form method="get" action="http://10.4.31.134/euni/course/mod.php" onsubmit="this.target='_top'; return true"><div><input name="update" value="4" type="hidden"><input name="return" value="true" type="hidden"><input name="sesskey" value="2QljEQvtBZ" type="hidden"><input value="Atualizar Fórum" type="submit"></div></form></div>
+    </div>
+
+<!-- END OF HEADER --><div id="content"><a href="#sb-1" class="skip-block">Saltar Administração do site</a><div id="inst2" class="block_admin_tree sideblock"><div class="header"><div class="title"><input src="view.php_arquivos/switch_minus.gif" id="togglehide_inst2" onclick="elementToggleHide(this, true, function(el) {return findParentNode(el, 'DIV', 'sideblock'); }, 'Mostrar o bloco Administração do site', 'Esconder o bloco Administração do site'); return false;" alt="Esconder o bloco Administração do site" title="Esconder o bloco Administração do site" class="hide-show-image" type="image"><h2>Administração do site</h2></div></div><div class="content">
+<script type="text/javascript">
+//<![CDATA[
+var vh_numdivs = 21;
+var parkplatz  = new Array();
+for (var i=1; i<=vh_numdivs; i++) {
+    parkplatz[i] = null;
+}
+
+function menu_toggle(i) {
+    i = parseInt(i);
+    if (parkplatz[i] === null) {
+        collapse(i);
+    } else {
+        expand(i);
+    }
+}
+
+function collapse(i) {
+    if (parkplatz[i] !== null) {
+        return;
+    }
+    var obj = document.getElementById("vh_div"+String(i));
+    if (obj === null) {
+        return;
+    }
+    var nothing = document.createElement("span");
+    nothing.setAttribute("id", "vh_div"+String(i));
+    parkplatz[i] = obj;
+    obj.parentNode.replaceChild(nothing, obj);
+    var icon = document.getElementById("vh_div"+String(i)+"indicator");
+    icon.innerHTML = "<img src=\"http://10.4.31.134/euni/theme/euni/pix/i/closed.gif\" alt=\"Pasta fechada\" />";
+}
+
+function expand(i) {
+    if (parkplatz[i] === null) {
+        return;
+    }
+    var nothing = document.getElementById("vh_div"+String(i));
+    var obj = parkplatz[i];
+    parkplatz[i] = null;
+    nothing.parentNode.replaceChild(obj, nothing);
+    var icon = document.getElementById("vh_div"+String(i)+"indicator");
+    icon.innerHTML = "<img src=\"http://10.4.31.134/euni/theme/euni/pix/i/open.gif\" alt=\"Pasta aberta\" />";
+}
+
+function expandall() {
+    for (i=1; i<=vh_numdivs; i++) {
+        expand(i);
+    }
+}
+
+function collapseall() {
+    for (var i=vh_numdivs; i>0; i--) {
+        collapse(i);
+    }
+}
+
+//]]>
+</script>
+<div class="admintree">
+
+<div class="depth0"><a class="link" href="http://10.4.31.134/euni/admin/index.php"><img src="view.php_arquivos/item.gif" alt="">Avisos</a></div>
+<div class="depth0"><a href="#" onclick="menu_toggle('1');return false"><span id="vh_div1indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Usuários</a></div><span id="vh_div1"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('5');return false"><span id="vh_div5indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Cursos</a></div><span id="vh_div5"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('6');return false"><span id="vh_div6indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Notas</a></div><span id="vh_div6"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('8');return false"><span id="vh_div8indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Local</a></div><span id="vh_div8"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('9');return false"><span id="vh_div9indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Idioma</a></div><span id="vh_div9"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('10');return false"><span id="vh_div10indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Módulos</a></div><span id="vh_div10"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('14');return false"><span id="vh_div14indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Segurança</a></div><span id="vh_div14"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('15');return false"><span id="vh_div15indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Aparência</a></div><span id="vh_div15"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('17');return false"><span id="vh_div17indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Página Inicial</a></div><span id="vh_div17"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('18');return false"><span id="vh_div18indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Servidor</a></div><span id="vh_div18"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('19');return false"><span id="vh_div19indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Rede</a></div><span id="vh_div19"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('20');return false"><span id="vh_div20indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Relatórios</a></div><span id="vh_div20"></span>
+<div class="depth0"><a href="#" onclick="menu_toggle('21');return false"><span id="vh_div21indicator"><img src="view.php_arquivos/closed.gif" alt="Pasta fechada"></span> Miscelânea</a></div><span id="vh_div21"></span>
+
+
+</div>
+<script type="text/javascript">
+//<![CDATA[
+collapseall();
+;
+//]]>
+</script><div class="footer"><div class="adminsearchform"><form action="http://10.4.31.134/euni/admin/search.php" method="get"><div><label for="query" class="accesshide">Pesquisa em configurações</label><input name="query" id="query" size="8" type="text"><input value="Buscar" type="submit"></div></form></div></div></div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst2","Mostrar o bloco Administração do site","Esconder o bloco Administração do site");
+//]]>
+</script><span id="sb-1" class="skip-block-to"></span><div class="subscription"><span class="helplink">Todos os usuários deste fórum são assinantes</span><br><span class="helplink"><a title="Ajuda com Todos podem escolher (nova janela)" href="http://10.4.31.134/euni/help.php?module=forum&amp;file=subscription.html&amp;forcelang=" onclick="this.target='popup'; return openpopup('/help.php?module=forum&amp;file=subscription.html&amp;forcelang=', 'popup', 'menubar=0,location=0,scrollbars,resizable,width=500,height=400', 0);"><img class="iconhelp" alt="Ajuda com Todos podem escolher (nova janela)" src="view.php_arquivos/help.gif"></a></span>&nbsp;<span class="helplink"><a title="Todos podem escolher" href="http://10.4.31.134/euni/mod/forum/subscribe.php?id=4&amp;force=no">Todos podem escolher</a></span><br></div><div id="intro" class="generalbox box">Notícias e avisos</div><br><div class="singlebutton forumaddnew"><form id="newdiscussionform" method="get" action="http://10.4.31.134/euni/mod/forum/post.php"><div><input name="forum" value="4" type="hidden"><input value="Acrescentar um novo tópico" type="submit"></div></form></div>
+<table class="forumheaderlist" cellspacing="0"><thead><tr><th class="header topic" scope="col">Tópico</th><th class="header author" colspan="2" scope="col">Autor</th><th class="header replies" scope="col">Comentários</th><th class="header lastpost" scope="col">Última mensagem</th></tr></thead><tbody>
+
+<tr class="discussion r0"><td class="topic starter"><a href="http://10.4.31.134/euni/mod/forum/discuss.php?d=1">Fórum - Discussão fórum II: Diferenciar os tipos de pesquisa e caralhos</a></td>
+<td class="picture"><a href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=5"><img class="userpicture" src="view.php_arquivos/f2.jpg" alt="Imagem de Diogo Magalhães Martins" height="35" width="35"></a></td>
+<td class="author"><a href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=5">Diogo Magalhães Martins</a></td>
+<td class="replies"><a href="http://10.4.31.134/euni/mod/forum/discuss.php?d=1">7</a></td>
+<td class="lastpost"><a href="http://10.4.31.134/euni/user/view.php?id=5&amp;course=5">Henrique  Andrade</a><br><a href="http://10.4.31.134/euni/mod/forum/discuss.php?d=1&amp;parent=9">Sex,  11 Dez 2009, 15:50</a></td>
+</tr>
+
+</tbody></table></div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+<div><p>
+	<a href="http://www.unirio.br/cead" target="_blank"><img src="view.php_arquivos/cead.png" height="50" hspace="10" width="100" align="absmiddle" border="0"></a>
+	
+	<a href="http://www.unirio.br/" target="_blank"><img src="view.php_arquivos/unirio.png" height="40" hspace="10" width="38" align="absmiddle" border="0"></a>
+	
+	<a href="http://moodle.org/" target="_blank"><img src="view.php_arquivos/orglogo.png" height="50" hspace="10" width="100" align="absmiddle" border="0"></a>
+		
+</p>
+
+<!--    <div class=" clearfix">
+<div ><div class="logininfo">Você acessou como <a  href="http://10.4.31.134/euni/user/view.php?id=3&amp;course=5">Diogo Magalhães Martins</a>  (<a  href="http://10.4.31.134/euni/login/logout.php?sesskey=2QljEQvtBZ">Sair</a>)</div></div>        
+<div ><div class="navigation">
+<ul><li>
+<a title="Todos os acessos"  onclick="this.target='_top';" href="http://10.4.31.134/euni/course/report/log/index.php?chooselog=1&amp;user=0&amp;date=0&amp;id=5&amp;modid=4"><img class="icon log" src="http://10.4.31.134/euni/theme/euni/pix/i/log.gif" alt="Todos os acessos" /></a>
+</li><li><form action="http://10.4.31.134/euni/course/jumpto.php" method="get"  id="navmenufooterpopup" class="popupform"><div><select id="navmenufooterpopup_jump" name="jump" onchange="self.location=document.getElementById('navmenufooterpopup').jump.options[document.getElementById('navmenufooterpopup').jump.selectedIndex].value;">
+   <option value="http://10.4.31.134/euni/mod/forum/view.php?id=4" selected="selected" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/forum/icon.gif);">Seguir para...</option>
+   <option value="http://10.4.31.134/euni/mod/forum/view.php?id=5" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/forum/icon.gif);">Forum da Puta que o pariu !</option>
+   <option value="http://10.4.31.134/euni/mod/chat/view.php?id=6" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/chat/icon.gif);">Chat Carnafolia</option>
+   <option value="http://10.4.31.134/euni/mod/quiz/view.php?id=7" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/quiz/icon.gif);">Questionário Boladão</option>
+   <optgroup label="Semana 1">   <option value="http://10.4.31.134/euni/mod/assignment/view.php?id=8" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/assignment/icon.gif);">Tarefa para dia 20/12/1500</option>
+   <option value="http://10.4.31.134/euni/mod/resource/view.php?id=9" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/resource/icon.gif);">Legislação, Estrutura, Funcionamento e Especificid...</option>
+   <option value="http://10.4.31.134/euni/mod/wiki/view.php?id=10" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/wiki/icon.gif);">Wikipedia</option>
+   <option value="http://10.4.31.134/euni/mod/lesson/view.php?id=14" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/lesson/icon.gif);">fasdfasdf</option>
+   </optgroup>   <optgroup label="Semana 2">   <option value="http://10.4.31.134/euni/mod/forum/view.php?id=11" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/forum/icon.gif);">Atividade 3 - Polo Rio de Janeiro: Professor-Tutor...</option>
+   </optgroup>   <optgroup label="Semana 3">   <option value="http://10.4.31.134/euni/mod/forum/view.php?id=13" style="background-image: url(http://10.4.31.134/euni/theme/euni/pix/mod/forum/icon.gif);">Testando o forum</option>
+    </optgroup></select><input type="hidden" name="sesskey" value="2QljEQvtBZ" /><div id="noscriptnavmenufooterpopup" style="display: inline;"><input type="submit" value="Vai" /></div><script type="text/javascript">
+//<![CDATA[
+document.getElementById("noscriptnavmenufooterpopup").style.display = "none";
+//]]>
+</script></div></form></li><li><form action="http://10.4.31.134/euni/mod/forum/view.php"   onclick="this.target='_top';"><fieldset class="invisiblefieldset"><input type="hidden" name="id" value="5" /><button type="submit" title="Próxima atividade"><span class="accesshide " >Próxima atividade&nbsp;</span><span class="arrow ">&#x25BA;</span></button></fieldset></form></li></ul>
+</div></div>
+    </div>
+ <P><font size="1">Original theme created by Shaun Daubney (Newbury College).</font></P></div>-->
+ 
+</div>
+</div>
+</div></div></body></html>

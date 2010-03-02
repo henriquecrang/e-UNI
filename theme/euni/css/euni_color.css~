@@ -1,0 +1,53 @@
+﻿/* Core */body {  background:#eeeeee;  color:#555555;}
+#surround {  background: #fafafa;  border-top: 10px solid #ffffff;  border-right: 10px solid #ffffff;  border-bottom: 10px solid #ffffff;  border-left: 10px solid #ffffff; }h1 {  background-color: #cccccc;  border-color: #cccccc;  color: #ffffff;}h2 {  background: #fbfbfb;  border-color:#cccccc;  color: #3a7170;}h2 .headingblock, .header  {    background-color: #000000    color: #3a7170;
+    	}
+h3 {  border-color:#cccccc;}h4 {  border-color:#cccccc;}.headermenu {  color: #cccccc;}.headermenu a {  color: #3a7170;}th {  background: #d7d7db url('images/sideheader.jpg') repeat-x;  border-color:#cccccc;  color: #3a7170;}th.header,td.header,div.header {  background: #d7d7db url('images/sideheader.jpg') repeat-x;  border-color:#cccccc;  color: #3a7170;}th.header a,td.header a,div.header a {  color: #555555;}th.header {  border-color: #cccccc;}#left-column .hidden .header, #right-column .hidden .header {  border-color:#cccccc;}#layout-table #left-column, #layout-table #right-column {    /*background-color: #ffffff;*/    border-color:#cccccc;}.generalbox {  border-color:#cccccc;  background-color:#FFFFFF;}.generaltable,.generaltable td {  border-color:#cccccc;  /* background-color:#FFFFFF; */}/* .generaltable .r0 td.cell.c0 { background-color:#cccccc; } */.generaltable .r0 { background-color:#ffffff; }.generaltable .r1 { background-color:#ffffff; }.generaltable .r1 td.cell.c0 {border-color:#cccccc; /* background-color:#555555; */}.navbar, .navbar a {  background-color: #f5f5f5;  color: #555555;
+  border-color:#d0d0d0;}.sitetopiccontent {  border-color:#a0a0a0;  background-color:#FFFFFF;}.highlight {  background-color:#cccccc;}.highlight2 {  color:#cccccc; /* highlight missing terms in forum search */}/*** *** Roles ***/.rolecap .inherit.capdefault, .rolecap .allow.capdefault {  background-color:#555555;}#admin-roles-override .capcurrent {  background-color:#555555;}/*** *** Header ***//***  *** Login ***/.loginbox,.loginbox.twocolumns .loginpanel,.loginbox .subcontent {  border-color:#cccccc;}
+
+.loginbox,.loginbox.twocolumns .loginpanel,.loginbox .subcontent a{
+  color:#3e7170;
+}.loginbox .content {  border-color:#cccccc;}/*** *** Footer ***/ #footer {background-color:#e0e0e0;} #footer p.helplink {}/*** *** Blocks ***/ .sideblock {   color:#555555;   background-color: transparent;   border-color: #cccccc;}.sideblock, .sideblock .content {   border-color: #f0f0f0;   background-color:#ffffff;   color:#555555;}.sideblock .header, .sideblock .header h2 { background: url(images/sideheader.jpg) repeat-x; background-color:#fefefe;  color: #3a7170; border-color: #cccccc;}.sideblock hr {  color:#cccccc;}.sideblock .footer {  border-top-color:#cccccc;}.sideblock .content .post .head .date,.sideblock .content .post .head .name {  color: #555555;}/*** *** Calendar***/ #calendar .maincalendar,#calendar .eventlist .event {  border-color: #cccccc;  background: #ffffff;}#calendar .maincalendar .header {  border-color: #cccccc;  color: #555555;  background: #d7d7db url('images/sideheader.jpg') repeat-x;}#calendar .sideblock {  border-left: #cccccc !important;  border-top: #cccccc !important;  border-right: #cccccc !important;  border-bottom: #cccccc !important;}#calendar .sideblock, {  background: #ffffff;}#calendar .event {  border-color: #ff0000;}#calendar .maincalendar table.calendarmonth th {  border-color: #cccccc;}#calendar .maincalendar table.calendarmonth td {  border-color: #cccccc;}table.calendarmonth tr td {   border-color:#cccccc;}table.minicalendar {  border-color:#cccccc;  }table.minicalendar tr.weekdays th {  background-color:#555555;  border-color:#cccccc;}table.minicalendar tr td.day {   border-color:#cccccc;  }  table.minicalendar tr td.weekend {  border-color:#cccccc;  color: red;  }  #calendar .today,.minicalendar .today {  border-color:#ff0000 !important;}  /* colors for calendar events */#calendar .event_global,.minicalendar .event_global,.block_calendar_month .event_global {  border-color:#def2ba !important;  background-color:#def2ba;}#calendar .event_course,.minicalendar .event_course,.block_calendar_month .event_course {  border-color:#c6dfeb !important;  background-color:#c6dfeb;}#calendar .event_group,.minicalendar .event_group,.block_calendar_month .event_group {  border-color:#feffc2 !important;  background-color:#feffc2;}#calendar .event_user,.minicalendar .event_user,.block_calendar_month .event_user {  border-color:#d9c6e2 !important;  background-color:#d9c6e2;}.cal_popup_fg {  background-color:#ffffff;}.cal_popup_bg {  border-color:#cccccc;  background-color:#ffffff;}/*** *** Course ***/.headingblock {  border-color: #cccccc;  color: #3a7170;}/* course */.headingblock .outline {  border-color:#cccccc;  color: #3a7170;  }.coursebox {  border-color:#dddddd;  background: #ffffff;}.coursebox .info { background: #ffffff;}
+
+.coursebox .summary {
+ color:#222222;
+}.categoryboxcontent,.courseboxcontent {  border-color:#dddddd;  background: #FFFFFF;}.categorybox .category,.categorybox .category {  border-color: #cccccc;}#course-view .section.main .content {  border-color: #cccccc;  background-color: #FFFFFF;}#course-view .section.main .side {  border-color: #cccccc;  background-color: #FFFFFF;}#course-view .current .right.side,#course-view .current .left.side {  background-color: #f0f0f0;}#course-view .section.hidden .content,#course-view .section.hidden .side {  border-color:#cccccc; }
+
+.titlecolor_forum{
+  color:#2faebe;
+  font-weight:bold;
+}
+.titlecolor_quiz{
+ color:#990000;
+ font-weight:bold;
+}/*** *** Tabs ***/ul.tabrow li {  background:url(pix/tab/left.gif) top left no-repeat;}.tabs .side {  border-color: #cccccc;}.tabrow td {  background:url(pix/tab/left.gif) top left no-repeat;}.tabrow td .tablink {  background:url(pix/tab/right.gif) top right no-repeat;}.tabrow td:hover {  background-image:url(pix/tab/left_hover.gif);}.tabrow td:hover .tablink {  background-image:url(pix/tab/right_hover.gif);}.tabrow .last span {  background:url(pix/tab/right_end.gif) top right no-repeat;}.tabrow .selected {  background:url(pix/tab/left_active.gif) top left no-repeat;}.tabrow .selected .tablink {  background:url(pix/tab/right_active.gif) top right no-repeat;}.tabrow td.selected:hover {  background-image:url(pix/tab/left_active_hover.gif);}.tabrow td.selected:hover .tablink {  background-image:url(pix/tab/right_active_hover.gif);}
+.notifyproblem{
+	color:#3a7170;
+}
+
+form.mform .required label{
+	color:#a05252;
+}
+/*** *** Modules: Forum ***/.forumheaderlist, .forumpost {  border-color:#cccccc;}
+/*Título do topico de resposta*/
+
+.forumpost .topic{
+  background-color:#eeeeee;
+}
+.forumpost .content {  background: #ffffff;}.forumpost .left {  background:#f3f3f3; }
+.forumpost .starter .topic .subject{
+  color:#44ffff;
+}
+
+/*Título do topico do forum*/.forumpost .topic .subject{
+  color:#333333;
+}
+/*Autor do topico*/
+.forumpost .topic .author{
+  color:#333333;
+}
+.forumpost .topic {  border-bottom-color: #cccccc;  background-color: #f3f3f3;}/*Box do primeiro post do tópico*/.forumpost .starter {  background-color: #dfdfdf;}.forumheaderlist .discussion .starter {  background:#ffffff; }.forumheaderlist td {  border-color: #cccccc;}.sideblock .post .head {  color:#ffffff;}.forumthread .unread {  background: #ffffff;}#mod-forum-discuss .forumpost {  background: none;}#mod-forum-discuss .forumpost.unread .content {  border-color: #cccccc; } #mod-forum-discuss .forumthread .unread {} #mod-forum-index .unread {}
+
+/*Comentário sobre edição em um tópico*/
+.forumpost .edited{
+  color:#444444;
+}/*** *** Modules: glossary ***/.picture,.entryattachment,.entryapproval {  background-color: #3b5998; } .entrybox {  border-color: #cccccc; }.glossarypost.dictionary,.glossarypost.fullwithauthor,.glossarypost.fullwithoutauthor,.glossarypost.continuous, .glossarypost.encyclopedia,.glossarypost.faq {  border-color: #cccccc;  background-color: #FFFFFF;}.glossarycategoryheader th  {  background-color: #F7F6F1;}.glossarycategoryheader h2, .glossarypost .concept h3 {  background-color: #FFFFFF}/*** *** Error message ***/.errorbox {/*   color:#ffffff; */   border-color:#990000;   background-color:#ffffff; }.errorboxcontent {   background-color:#ffffff;} /*** *** Grade ***/.grade-report-grader table#user-grades td.cell span.gradepass {  background-color: #C2EBBD; }.grade-report-grader table#user-grades td.cell span.gradefail {  background-color: #EBC4BD;}/*** *** User ***/.userinfobox { border-color: #cccccc;}.userinfobox .side { background-color: #ffffff;}.userinfobox .content { background-color: #ffffff;}
