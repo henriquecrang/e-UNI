@@ -5,7 +5,7 @@
 	clear:both;
 	margin-right:0px;
 	margin-left:0px;
-	background:url('images/default/barra_menu.png') no-repeat left;
+	
 	
 }
 
@@ -23,6 +23,7 @@
 	list-style:none;
 	float:left;
 	z-index: 9999;
+	
 }
 #top_menu ul li {
 	list-style:none;
@@ -30,6 +31,7 @@
 	height:43px;
 	white-space:nowrap;
 	z-index: 9999;
+	text-shadow:0 1px 1px #101010;
 }
 #top_menu ul li div{
 	position:relative;
@@ -43,14 +45,14 @@
 	padding: 10px 17px 0 17px;
 	color: #ffffff;
 	background:none;
+	
 	}
 	
 #top_menu ul li a:hover{  /*Atributos de links HOVER do menu superior*/
 	color:#FFFFFF;
-	background:none;
-
-	
+	background:none;	
 }
+
 #top_menu ul li.home a:hover{
 	background:none;
 }
@@ -104,12 +106,11 @@
 	color:#83c8ff;
 
 }
-#top_menu li ul li a {
-	padding:0;
+#top_menu li ul li a { /*Itens do menu dropdown*/
 	margin:0;
 	display:block;
 	height: auto;
-	color:#363636;
+	color:#008db0;
 	background:none;
 }
 

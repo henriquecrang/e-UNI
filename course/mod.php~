@@ -692,7 +692,7 @@
     }
 
     $navlinks = array();
-    $navlinks[] = array('name' => $strmodulenameplural, 'link' => "$CFG->wwwroot/mod/$module->name/index.php?id=$course->id", 'type' => 'activity');
+    
     $navlinks[] = array('name' => $streditinga, 'link' => '', 'type' => 'action');
     $navigation = build_navigation($navlinks);
 
@@ -719,7 +719,7 @@
             $defaultformat = FORMAT_MOODLE;
         }
 
-        $icon = '<aaimg class="icon" src="'.$CFG->modpixpath.'/'.$module->name.'/icon.gif" alt="'.get_string('modulename',$module->name).'"/>';
+        $icon = '<img class="icon" src="'.$CFG->modpixpath.'/'.$module->name.'/icon.gif" alt="'.get_string('modulename',$module->name).'"/>';
 
         print_heading_with_help($pageheading, "mods", $module->name, $icon);
         print_simple_box_start('center', '', '', 5, 'generalbox', $module->name);

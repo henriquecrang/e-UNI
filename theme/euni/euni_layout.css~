@@ -83,15 +83,16 @@
   padding-bottom:3px;
 }/*                      Barra do MEC                               */#mecimg{	width:960px;	height:6px;	margin: 0 0 0 0;	padding: 0 0 0 0;}#mec {	height:27px;	width:100%;	margin:0;	padding: 0px 0px 0px 0px;	background-image: url(images/barragov/topo_barra.gif);	background-repeat: no-repeat;	background-position: top center;}#mecConteudo {	padding: 5px;}#mec a {	float:left;	background:url(images/barragov/bandeira.bmp) no-repeat;	display:block;	font:bold 12px Arial;	color:#000;	line-height:21px;	text-decoration:none;	padding-left:34px}#mec select {	float:right;	font-size:0.8em;	margin-top: 1px;	background: #fcc732;	border: 1px solid #836000;}/*                 Fim    -    Barra do MEC                               *//* Barra de Acessibilidade */
 #ace_conteudo{
-	width:100%;
+	width:450px;
 	height:30px;   
 	background: url('images/default/b_02.gif') no-repeat left;
 	
+	
+	
 }
-#ace_conteudo p {margin:0 0 0 0; font-size:9pt; text-align:right;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
+#ace_conteudo p {margin:0 0 0 0; font-size:9pt; text-align:right; position:relative; left:500px;}#ace_conteudo .btn_tamanho_mais {background: url('images/barraac/btn-tamanho-mais.png');}#ace_conteudo .btn_tamanho_menos {background: url('images/barraac/btn-tamanho-menos.png');}#ace_conteudo .btn_contraste_mais {background: url('images/barraac/btn-contraste-mais.png');}#ace_conteudo .btn_contraste_menos {background: url('images/barraac/btn-contraste-menos.png');}#acessibilidade {	color:#8b5d0d;	background:url('images/default/b_01.gif') repeat-x left; 	
 	width:100%;
-	height:30px;	
-	padding-left:15px;}
+	height:30px;	}
 
 #ace_conteudo img{
 	padding-top: 5px;

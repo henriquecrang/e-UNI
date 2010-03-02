@@ -5,7 +5,7 @@
 /// how Moodle uses this theme.
 ////////////////////////////////////////////////////////////////////////////////
 
-$THEME->sheets = array('euni_layout','euni_color','euni_fonts', 'euni_topmenu', 'euni_default');
+$THEME->sheets = array('css/euni_layout','css/euni_color','css/euni_fonts', 'css/euni_topmenu', 'css/euni_default', 'css/euni_barragov', 'css/euni_barraac');
 ///$THEME->sheets = false;
 
 /// This variable is an array containing the names of all the 

@@ -5,6 +5,7 @@
     require_once("$CFG->libdir/rsslib.php");
 
 
+
     $id          = optional_param('id', 0, PARAM_INT);       // Course Module ID
     $f           = optional_param('f', 0, PARAM_INT);        // Forum ID
     $mode        = optional_param('mode', 0, PARAM_INT);     // Display mode (for single forum)
@@ -73,6 +74,197 @@
     $navigation = build_navigation('', $cm);
     print_header_simple(format_string($forum->name), "",
                  $navigation, "", "", true, $buttontext, navmenu($course, $cm));
+
+
+/////////////////// GAMBIARRATION //////////////////
+
+    require_once('../../course/lib.php');
+    require_once($CFG->libdir.'/blocklib.php');
+    require_once($CFG->libdir.'/ajax/ajaxlib.php');
+    require_once($CFG->dirroot.'/mod/forum/lib.php');
+
+    $id          = optional_param('id', 0, PARAM_INT);
+    $name        = optional_param('name', '', PARAM_RAW);
+    $edit        = optional_param('edit', -1, PARAM_BOOL);
+    $hide        = optional_param('hide', 0, PARAM_INT);
+    $show        = optional_param('show', 0, PARAM_INT);
+    $idnumber    = optional_param('idnumber', '', PARAM_RAW);
+    $section     = optional_param('section', 0, PARAM_INT);
+    $move        = optional_param('move', 0, PARAM_INT);
+    $marker      = optional_param('marker',-1 , PARAM_INT);
+    $switchrole  = optional_param('switchrole',-1, PARAM_INT);
+
+if (!$context = get_context_instance(CONTEXT_COURSE, $course->id)) {
+        print_error('nocontext');
+    }
+
+    if ($switchrole == 0) {  // Remove any switched roles before checking login
+        role_switch($switchrole, $context);
+    }
+
+    require_login($course->id);
+
+    if ($switchrole > 0) {
+        role_switch($switchrole, $context);
+        require_login($course->id);   // Double check that this role is allowed here
+    }
+
+    //If course is hosted on an external server, redirect to corresponding
+    //url with appropriate authentication attached as parameter 
+    if (file_exists($CFG->dirroot .'/course/externservercourse.php')) {
+        include $CFG->dirroot .'/course/externservercourse.php';
+        if (function_exists('extern_server_course')) {
+            if ($extern_url = extern_server_course($course)) {
+                redirect($extern_url);echo '</td>';
+            }
+        }
+    }
+
+    require_once($CFG->dirroot.'/calendar/lib.php');    /// This is after login because it needs $USER
+
+    //add_to_log($course->id, 'course', 'view', "view.php?id=$course->id", "$course->id");
+
+    $course->format = clean_param($course->format, PARAM_ALPHA);
+    if (!file_exists($CFG->dirroot.'/course/format/'.$course->format.'/format.php')) {
+        $course->format = 'weeks';  // Default format is weeks
+    }
+
+    $PAGE = page_create_object(PAGE_COURSE_VIEW, $course->id);
+    $pageblocks = blocks_setup($PAGE, BLOCKS_PINNED_BOTH);
+
+
+    if (!isset($USER->editing)) {
+        $USER->editing = 0;
+    }
+    if ($PAGE->user_allowed_editing()) {
+        if (($edit == 1) and confirm_sesskey()) {
+            $USER->editing = 1;
+        } else if (($edit == 0) and confirm_sesskey()) {
+            $USER->editing = 0;
+            if(!empty($USER->activitycopy) && $USER->activitycopycourse == $course->id) {
+                $USER->activitycopy       = false;
+                $USER->activitycopycourse = NULL;
+            }
+        }
+
+        if ($hide && confirm_sesskey()) {
+            set_section_visible($course->id, $hide, '0');
+        }
+
+        if ($show && confirm_sesskey()) {
+            set_section_visible($course->id, $show, '1');
+        }
+
+        if (!empty($section)) {
+            if (!empty($move) and confirm_sesskey()) {
+                if (!move_section($course, $section, $move)) {
+                    notify('An error occurred while moving a section');
+                }
+            }
+        }
+    } else {
+        $USER->editing = 0;
+    }
+
+    $SESSION->fromdiscussion = $CFG->wwwroot .'/course/view.php?id='. $course->id;
+
+
+    if ($course->id == SITEID) {
+        // This course is not a real course.
+        redirect($CFG->wwwroot .'/');
+    }
+	
+	    get_all_mods($course->id, $mods, $modnames, $modnamesplural, $modnamesused);
+
+    if (! $sections = get_all_sections($course->id)) {   // No sections found
+        // Double-check to be extra sure
+        if (! $section = get_record('course_sections', 'course', $course->id, 'section', 0)) {
+            $section->course = $course->id;   // Create a default section.
+            $section->section = 0;
+            $section->visible = 1;
+            $section->id = insert_record('course_sections', $section);
+        }
+        if (! $sections = get_all_sections($course->id) ) {      // Try again
+            error('Error finding or creating section structures for this course');
+        }
+    }
+
+
+    if (empty($course->modinfo)) {
+        // Course cache was never made.
+        rebuild_course_cache($course->id);
+        if (! $course = get_record('course', 'id', $course->id) ) {
+            error("That's an invalid course id");
+        }
+    }
+
+$week = optional_param('week', -1, PARAM_INT);
+
+    // Bounds for block widths
+    // more flexible for theme designers taken from theme config.php
+    $lmin = (empty($THEME->block_l_min_width)) ? 100 : $THEME->block_l_min_width;
+    $lmax = (empty($THEME->block_l_max_width)) ? 210 : $THEME->block_l_max_width;
+    $rmin = (empty($THEME->block_r_min_width)) ? 100 : $THEME->block_r_min_width;
+    $rmax = (empty($THEME->block_r_max_width)) ? 210 : $THEME->block_r_max_width;
+
+    define('BLOCK_L_MIN_WIDTH', $lmin);
+    define('BLOCK_L_MAX_WIDTH', $lmax);
+    define('BLOCK_R_MIN_WIDTH', $rmin);
+    define('BLOCK_R_MAX_WIDTH', $rmax);
+  
+    $preferred_width_left  = bounded_number(BLOCK_L_MIN_WIDTH, blocks_preferred_width($pageblocks[BLOCK_POS_LEFT]),  
+                                            BLOCK_L_MAX_WIDTH);
+    $preferred_width_right = bounded_number(BLOCK_R_MIN_WIDTH, blocks_preferred_width($pageblocks[BLOCK_POS_RIGHT]), 
+                                            BLOCK_R_MAX_WIDTH);
+
+    if ($week != -1) {
+        $displaysection = course_set_display($course->id, $week);
+    } else {
+        if (isset($USER->display[$course->id])) {
+            $displaysection = $USER->display[$course->id];
+        } else {
+            $displaysection = course_set_display($course->id, 0);
+        }
+    }
+
+    $streditsummary  = get_string('editsummary');
+    $stradd          = get_string('add');
+    $stractivities   = get_string('activities');
+    $strshowallweeks = get_string('showallweeks');
+    $strweek         = get_string('week');
+    $strgroups       = get_string('groups');
+    $strgroupmy      = get_string('groupmy');
+    $editing         = $PAGE->user_is_editing();
+
+    if ($editing) {
+        $strstudents = moodle_strtolower($course->students);
+        $strweekhide = get_string('weekhide', '', $strstudents);
+        $strweekshow = get_string('weekshow', '', $strstudents);
+        $strmoveup   = get_string('moveup');
+        $strmovedown = get_string('movedown');
+    }
+
+    $context = get_context_instance(CONTEXT_COURSE, $course->id);
+
+    if (blocks_have_content($pageblocks, BLOCK_POS_LEFT) || $editing) {
+        echo "<table border=\"0\" cellpadding=\"3\" cellspacing=\"0\" width=\"100%\">";
+	echo "<tr><td width=\"180\" valign=\"top\">";
+       
+        
+        blocks_print_group($PAGE, $pageblocks, BLOCK_POS_LEFT);
+	echo "</td><td valign=\"top\">";       
+       
+    }	
+
+////////////////////// END OF GAMBIARRATION /////////////
+
+
+
+
+
+
+
+
 
 /// Some capability checks.
     if (empty($cm->visible) and !has_capability('moodle/course:viewhiddenactivities', $context)) {
@@ -280,6 +472,11 @@
 
             break;
     }
+
+//////////////////////////////////////////////////tem que rolar um include pra fechar
+
+echo "</td></tr></table>";
+//////////////////////////////////////////////////
     print_footer($course);
 
 ?>

@@ -10,7 +10,7 @@ $CFG->dbpass    = '123456';
 $CFG->dbpersist =  false;
 $CFG->prefix    = 'mdl_';
 
-$CFG->wwwroot   = 'http://10.4.31.96/euni';
+$CFG->wwwroot   = 'http://10.4.31.134/euni';
 $CFG->dirroot   = '/home/moodle';
 $CFG->dataroot  = '/home/moodledata';
 $CFG->admin     = 'admin';

@@ -450,7 +450,7 @@
             $currenttab = 'update';
             include_once($CFG->dirroot.'/'.$CFG->admin.'/roles/tabs.php');
         }
-        $icon = '<ssimg src="'.$CFG->modpixpath.'/'.$module->name.'/icon.gif" alt=""/>  <div class="titlecolor_'.$module->name'">';
+        $icon = '<img src="'.$CFG->modpixpath.'/'.$module->name.'/icon.gif" alt="" align="left"/><div class="titlecolor_'.$module->name.'">';
 
         print_heading_with_help($pageheading, "mods", $module->name, $icon);
         $mform->display();

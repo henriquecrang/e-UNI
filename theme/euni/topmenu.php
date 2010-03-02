@@ -43,41 +43,32 @@ document.write("" +today+ " ");
         <li class="bkg_b03"><div><a href="<?php echo $CFG->wwwroot.'/user/view.php?id='.$USER->id.'&course=1' ?>">Meu Perfil</a></div>
 
  
- 		<li class="bkg_b04"><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Disciplinas</a>
-       <ul>
+ 	<li class="bkg_b04"><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Disciplinas</a>
+       		<ul>
      
-      		
-		<li><a href="http://">Fundamentos de Educação Especial</a></li>
-		<li><a href="http://">Metodologia Científica</a></li>
-		<li><a href="http://">Processos: Políticas e Sistemas</a></li>
+<?php
+
+//Imprimindo as disciplinas no menu dropdown
+
+$result = get_records_sql("SELECT cr.fullname, cr.id FROM mdl_course cr, mdl_role_assignments ra, mdl_context ct WHERE ct.contextlevel = 50 AND ct.instanceid = cr.id AND ra.contextid = ct.id AND ra.userid = $USER->id ORDER BY cr.fullname ASC");
+foreach ($result as $courses) {
+	$course_name = $courses->fullname;
+	$course_id = $courses->id;
+	?>
+
+	<li><a href="<?php print $CFG->wwwroot; ?>/course/view.php?id=<?php print $course_id; ?>"><?php print $course_name; ?></a></li>
+
+
+<?php
+}
+?>       		
+		
 		            </ul></div>
  
  
- 		<li><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Eventos</a>
-       <!-- <ul>
-     
-       		<li><a href="http://">Item 1</a></li>
-		<li><a href="http://">Item 2</a></li>
-		<li><a href="http://">Item 3</a></li>
-		<li><a href="http://">Item 4</a></li>
-		            </ul>--></div>
-            
-            <li><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Notícias</a>
-        <!--<ul>
-     
-        	<li><a href="http://">Item 1</a></li>
-		<li><a href="http://">Item 2</a></li>
-		<li><a href="http://">Item 3</a></li>
-		<li><a href="http://">Item 4</a></li>            </ul>--></div>
- 
- 
- 		<li><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Sobre o e-UNI</a>
-        <!--<ul>
-     
-        	<li><a href="http://">Item 1</a></li>
-		<li><a href="http://">Item 2</a></li>
-		<li><a href="http://">Item 3</a></li>
-		<li><a href="http://">Item 4</a></li>            </ul>--></div>
+ 	<!--<li><div><a href="<?php echo $CFG->wwwroot.'/' ?>">Eventos</a></div>-->
+        <li><div><a href="<?php echo $CFG->wwwroot.'/' ?>theme/euni/componentes/noticias/noticias.php">Notícias</a></div> 
+ 	<li><div><a href="<?php echo $CFG->wwwroot.'/' ?>theme/euni/componentes/sobre/sobre_euni.php">Sobre o e-UNI</a></div>
  
  
         

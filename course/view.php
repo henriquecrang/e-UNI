@@ -1,4 +1,4 @@
-<?php // $Id: view.php,v 1.106.2.6 2009/02/12 02:29:34 jerome Exp $
+<?php // $Id: view.php,v 1.106.2.7 2009/10/03 01:35:05 nicolasconnault Exp $
 
 //  Display the course home page.
 
@@ -166,6 +166,8 @@
                                  'yui_event',
                                  'yui_dragdrop',
                                  'yui_connection',
+                                 'yui_selector',
+                                 'yui_element',
                                  'ajaxcourse_blocks',
                                  'ajaxcourse_sections'));
                 

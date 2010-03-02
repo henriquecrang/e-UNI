@@ -60,24 +60,26 @@ if ($heading) {  // This is what gets printed on any page with a heading
 <!-- barra de acessibilidade -->
 
 <div id="acessibilidade">
-	<div id="ace_conteudo">
-		<div class="direita">
+		<!--<div id="ace_conteudo">-->
+		<div id="direita" class="direita">
 			
 			<p><span class="pular">Pular para:</span>
 			|<a href="#left-column" accesskey="m" class="atalho" title="Pular para o menu" > Menu (alt+M)</a> |
 			<a href="#middle-column" accesskey="c" class="atalho" title="Pular para o conteúdo">Conteúdo (alt+C)</a> |
 		
-			<script type="text/javascript" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/js/barraac/md_stylechanger.js"></script>
+			<script type="text/javascript" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/js/barraac/changefontsize.js"></script>
 
-	Tamanho da letra: <a href="javascript:changeFontSize(1)" title="Aumenta texto">
+	Tamanho da letra: <a href="javascript:increaseFontSize();">
 			<img src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barraac/btn-tamanho-mais.png" alt="botão +" border="0" style="margin-right:5px;" /></a>
 		
-			<a href="javascript:revertStyles()" title="Texto normal"><img id="btn-tamanho-menos" alt="botão -" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barraac/btn-tamanho-menos.png" /></a>
+			<a href="javascript:decreaseFontSize();"><img id="btn-tamanho-menos" alt="botão -" src="<?php echo $CFG->httpswwwroot.'/theme/'.current_theme() ?>/images/barraac/btn-tamanho-menos.png" /></a>
 			</p>
 		</div>		
 
-	</div>
+	<!--</div>-->
 </div>
+
+<!-- fim barra de acessibilidade -->
 
  <?php print_container_start(true, '', 'header');
     	
@@ -94,13 +96,14 @@ if ($heading) {  // This is what gets printed on any page with a heading
 
        
     <?php print_container_end(); ?>
+     <div id="top_menu_bkg">
      <div id="top_menu">
      <?php
         {
         include('topmenu.php'); 
         }   
 ?>					
-			</div>
+			</div></div>
 <?php } ?>
 <?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
       if ($navigation) { // This is the navigation bar with breadcrumbs  ?>
